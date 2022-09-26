@@ -182,7 +182,7 @@ export default function Home({ posts }) {
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
 
-      <div className=" flex h-[768px] max-w-[1366px] mx-auto">
+      <div className=" flex h-[700px] max-w-[1366px] mx-auto">
         <div className=" w-full">
           <div className="grid grid-cols-2">
             <div className=" w-full  overflow-x-auto">
@@ -223,7 +223,7 @@ export default function Home({ posts }) {
               </div>
               <div className="bg-[#282c34] flex">
                 <div className="px-2">
-                  {Array.from({ length: 30 }, (_, x) => (
+                  {Array.from({ length: 27 }, (_, x) => (
                     <div className="code text-whitevs">{x > 0 && x}</div>
 
                   ))}
@@ -286,8 +286,8 @@ export default function Home({ posts }) {
                 {/* </TypeIt> */}
               </div>
             </div>
-            <div className="w-full  relative">
-              <div className="bg-white p-1 h-[350px]">
+            <div className="w-full  relative ">
+              <div className="bg-white p-1 h-[280px]">
                 <div className="text-black ">
                   <div className="bg-[#f1f3f4] w-full rounded-xl text-sm py-1 px-3">http://localhost:3000/</div>
                 </div>
@@ -325,25 +325,31 @@ export default function Home({ posts }) {
                   </div>
                 </div>
               </div>
-              <div className='p-20 bg-red-200 h-[350px]'>
-                <div className="grid grid-cols-2 h-20 gap-x-[1px] w-full -mb-[77px]  blink-bg">
-                  <div className="w-full hfull bg-black border-2 border-black"></div>
-                  {secondMoni}
+              <div className='p-2 bg-red-200 h-[360px]'>
+                <div className="h-[60px]">t</div>
+                <div className="h-[60px]">t</div>
+                <div className="h-[240px] flex justify-center items-end relative">
+                  <div className="">
+                    <div className="grid grid-cols-2 h-20 gap-x-[1px] w-full -mb-[77px]  blink-bg">
+                      <div className="w-full hfull bg-black border-2 border-black"></div>
+                      {secondMoni}
 
-                </div>
-                <div
-                  className="w-60 h-60 mx-auto">
-                  <Image
+                    </div>
+                    <div
+                      className="w-60 h-60 mx-auto relative">
+                      <Image
 
-                    src="/static/images/programer.png"
-                    alt=""
-                    width="350"
-                    height="350"
-                    layuot="fill"
-                  // sizes="100vw"
+                        src="/static/images/programer.png"
+                        alt=""
+                        width="350"
+                        height="350"
+                        layuot="fill"
+                      // sizes="100vw"
 
-                  // objectFit='contain'
-                  />
+                      // objectFit='contain'
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
