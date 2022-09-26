@@ -37,14 +37,14 @@ export default function Home({ posts }) {
 
   console.log(firsAction)
 
-  function renderOpenDiv(cls) {
+  function renderOpenDiv(cls, txtClass) {
     return (
       <div className={['code', cls].join(' ')}>
         <span className="whitevs">{`<`}</span>
         <span className="redvs">div</span>{'  '}
         <span className="orangevs">className</span>
         <span className="bluevs">=</span>
-        <span className="greenvs">""</span>
+        <span className="greenvs">"{txtClass}"</span>
         <span className="whitevs">{`>`}</span>
       </div>
     )
@@ -138,6 +138,13 @@ export default function Home({ posts }) {
     )
   }
 
+  function renderClass(txtClass) {
+    return (
+      <span className="greenvs">{txtClass}</span>
+
+    )
+  }
+
   const secondMoni = <div className="border-black border h-full">
     <div className="flex items-center justify-center w-full px-1 h-full">
       <div class=" bg-slate-800  p-1 flex items-center space-x-1 rounded flex items-center justify-center w-full">
@@ -182,10 +189,10 @@ export default function Home({ posts }) {
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
 
-      <div className=" flex h-[700px] max-w-[1366px] mx-auto">
+      <div className=" flex h-[660px] max-w-[1366px] mx-auto">
         <div className=" w-full">
           <div className="grid grid-cols-2">
-            <div className=" w-full  overflow-x-auto">
+            <div className="   overflow-x-auto">
               <div>
                 <div className="flex space-x-3 bg-[#21252b] px-2 py-1 ">
                   <img src="./static/images/vscode.svg" alt="" className="h-5 w-5" />
@@ -242,7 +249,7 @@ export default function Home({ posts }) {
                     // waitUntilVisible: true,
                   }}
                 > */}
-                <div className="code">
+                <div className="code w-[683px]">
                   <div className="flex items-center space-x-2">
                     <div className="text-purplevs">import </div>
                     <div className="text-redvs">React</div>
@@ -257,11 +264,10 @@ export default function Home({ posts }) {
                     <div className="text-orangevs">{`( ) {`}</div>
                   </div>
                   <div className="text-purplevs pl-4">{`return (`}</div>
-                  <div className="code">
-                    {renderOpenDiv('pl-8')}
+                  <div className="code whitespace-nowrap">
+                    {renderOpenDiv('pl-8', renderClass(<TypeIt>flex justify-center items-center h-[calc(100%-30px)] px-16</TypeIt>))}
                     {renderOpenDiv('pl-12')}
                     {renderOpenDiv('pl-16')}
-
                     {renderCloseDiv()}
                     {renderOpenDiv()}
                     {renderCloseDiv()}
@@ -288,10 +294,10 @@ export default function Home({ posts }) {
             </div>
             <div className="w-full  relative ">
               <div className="bg-white p-1 h-[280px]">
-                <div className="text-black ">
-                  <div className="bg-[#f1f3f4] w-full rounded-xl text-sm py-1 px-3">http://localhost:3000/</div>
+                <div className="h-[30px]">
+                  <div className="bg-[#f1f3f4] w-full rounded-xl text-sm py-1 px-3 text-black">http://localhost:3000/</div>
                 </div>
-                <div className="flex items-center justify-center w-full p-4">
+                <div className="flex justify-center items-center h-[calc(100%-30px)] px-16">
                   <div class=" bg-slate-800   p-4 flex items-center space-x-4 rounded-xl flex items-center justify-center w-full">
                     <div class="space-y-3  text-center m md:text-left">
                       <p class="text-lg font-medium">
