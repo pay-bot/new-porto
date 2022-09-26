@@ -178,7 +178,6 @@ export default function Home({ posts }) {
   </div>
 
 
-
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
@@ -222,7 +221,14 @@ export default function Home({ posts }) {
                   </div>
                 </div>
               </div>
-              <div className="bg-[#282c34]">
+              <div className="bg-[#282c34] flex">
+                <div className="px-2">
+                  {Array.from({ length: 30 }, (_, x) => (
+                    <div className="code text-whitevs">{x > 0 && x}</div>
+
+                  ))}
+
+                </div>
                 {/* <TypeIt
                   options={{
                     cursor: false,

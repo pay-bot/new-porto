@@ -91,7 +91,7 @@ header.isSticky .title {
 }
 
 div.code > span.whitevs {
-  color: white;
+  color: #abb2bf;
 }
 
 div.code > span.purplevs {
@@ -112,7 +112,7 @@ div.code > span.bluevs {
   color: #61b4f8;
 }
 div.code > span.yellowvs {
-  color: #fdf252;
+  color: #e5c07b;
 }
 
 div.code {
