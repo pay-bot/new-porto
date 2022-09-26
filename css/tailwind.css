@@ -118,3 +118,25 @@ div.code > span.yellowvs {
 div.code {
   font-size: 14px;
 }
+
+@keyframes blinkingBg {
+  0% {
+    box-shadow: 0px 0px 30px 30px rgba(255, 0, 0, 0.3);
+  }
+  25% {
+    box-shadow: 0px 0px 30px 30px rgba(0, 255, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0px 0px 30px 30px rgba(30, 144, 255, 0.3);
+  }
+  75% {
+    box-shadow: 0px 0px 30px 30px rgba(255, 20, 147, 0.3);
+  }
+  100% {
+    box-shadow: 0px 0px 30px 30px rgba(255, 0, 0, 0.3);
+  }
+}
+
+.blink-bg {
+  animation: blinkingBg 5s infinite !important;
+}

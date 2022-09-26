@@ -138,25 +138,64 @@ export default function Home({ posts }) {
     )
   }
 
+  const secondMoni = <div className="border-black border h-full">
+    <div className="flex items-center justify-center w-full px-1 h-full">
+      <div class=" bg-slate-800  p-1 flex items-center space-x-1 rounded flex items-center justify-center w-full">
+        <div class="space-y-1  text-center m md:text-left">
+          <p class="text-[4px] font-medium">
+            “Tailwind CSS is the only framework .”
+          </p>
+          <div class="text-sky-500 dark:text-sky-400 text-[4px]">Sarah Dayan</div>
+          <div class="text-white text-[4px]">
+            Staff Engineer, Algolia
+          </div>
+          <div className="flex  space-x-1">
+            <Link href="/">
+              <a className="rounded-[2px] bg-blue-300 p-[2px] text-[4px]" >
+                Read Post
+              </a>
+            </Link>
+            <Link href="/">
+              <a className="rounded-[2px] bg-blue-300 p-[2px] text-[4px]" >
+                Read Post
+              </a>
+            </Link>
+          </div>
+        </div>
+        <div className="rounded-full w-8 h-8 relative">
+          <Image
+            className="w-full h-full rounded-full object-cover object-top"
+            src="/static/images/fahri.jpeg"
+            alt=""
+            fill
+          />
+        </div>
+      </div>
+    </div>
+    <div className="-mt-6 -ml-1 ">
+      <div className="font-bold text-lg text-blue-700 text-center animate-pulse ">.</div>
+    </div>
+  </div>
+
 
 
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
 
-      <div className=" flex h-[1200px] w-full">
+      <div className=" flex h-[768px] max-w-[1366px] mx-auto">
         <div className=" w-full">
           <div className="grid grid-cols-2">
-            <div className=" w-full  ">
+            <div className=" w-full  overflow-x-auto">
               <div>
-                <div className="flex space-x-3 bg-gray-400 px-2 py-1">
+                <div className="flex space-x-3 bg-[#21252b] px-2 py-1 ">
                   <img src="./static/images/vscode.svg" alt="" className="h-5 w-5" />
                   <div className="text-sm">File</div>
                   <div className="text-sm">Edit</div>
                   <div className="text-sm">Terminal</div>
                 </div>
-                <div className="w-full  py-1">
-                  <div className="flex items-center">
+                <div className="w-full  py-1 bg-[#21252b]">
+                  <div className="flex items-center bg-[#282c34] w-fit border-r border-black">
                     <div className="flex w-fit items-center space-x-2 border-b border-white px-2 py-1">
                       <img src="./static/images/react.svg" alt="" className="h-4 w-4" />
                       <div className="text-sm">index.jsx</div>
@@ -164,7 +203,7 @@ export default function Home({ posts }) {
                     </div>
                   </div>
                 </div>
-                <div className="w-full ">
+                <div className="w-full bg-[#282c34] border-b border-gray-800">
                   <div className="flex items-center space-x-1">
                     <div className="flex w-fit items-center  space-x-2 px-2 py-1">
                       {/* <img src="./static/images/react.svg" alt="" className="w-4 h-4" /> */}
@@ -183,7 +222,7 @@ export default function Home({ posts }) {
                   </div>
                 </div>
               </div>
-              <div className="bg-[#282c35]">
+              <div className="bg-[#282c34]">
                 {/* <TypeIt
                   options={{
                     cursor: false,
@@ -199,7 +238,7 @@ export default function Home({ posts }) {
                 > */}
                 <div className="code">
                   <div className="flex items-center space-x-2">
-                    <div className="text-purplevs">import</div>
+                    <div className="text-purplevs">import </div>
                     <div className="text-redvs">React</div>
                     <div className="text-purplevs">from</div>
                     <div className="text-greenvs">'reactvs'</div>
@@ -241,86 +280,49 @@ export default function Home({ posts }) {
                 {/* </TypeIt> */}
               </div>
             </div>
-            <div className="w-full bg-white relative">
-              <div className="text-black ">Chrome tools</div>
-              <div className="flex items-center justify-center w-full p-4">
-                <div class=" bg-slate-800  p-4 flex items-center space-x-4 rounded-xl flex items-center justify-center w-full">
-                  <div class="space-y-3  text-center m md:text-left">
-                    <p class="text-lg font-medium">
-                      “Tailwind CSS is the only framework .”
-                    </p>
-                    <div class="text-sky-500 dark:text-sky-400">Sarah Dayan</div>
-                    <div class="text-white">
-                      Staff Engineer, Algolia
+            <div className="w-full  relative">
+              <div className="bg-white p-1 h-[350px]">
+                <div className="text-black ">
+                  <div className="bg-[#f1f3f4] w-full rounded-xl text-sm py-1 px-3">http://localhost:3000/</div>
+                </div>
+                <div className="flex items-center justify-center w-full p-4">
+                  <div class=" bg-slate-800   p-4 flex items-center space-x-4 rounded-xl flex items-center justify-center w-full">
+                    <div class="space-y-3  text-center m md:text-left">
+                      <p class="text-lg font-medium">
+                        “Tailwind CSS is the only framework .”
+                      </p>
+                      <div class="text-sky-500 dark:text-sky-400">Sarah Dayan</div>
+                      <div class="text-white">
+                        Staff Engineer, Algolia
+                      </div>
+                      <div className="flex  space-x-2">
+                        <Link href="/">
+                          <a className="rounded bg-blue-300 p-2 " >
+                            Read Post
+                          </a>
+                        </Link>
+                        <Link href="/">
+                          <a className="rounded bg-blue-300 p-2 " >
+                            Read Post
+                          </a>
+                        </Link>
+                      </div>
                     </div>
-                    <div className="flex  space-x-2">
-                      <Link href="/">
-                        <a className="rounded bg-blue-300 p-2 " >
-                          Read Post
-                        </a>
-                      </Link>
-                      <Link href="/">
-                        <a className="rounded bg-blue-300 p-2 " >
-                          Read Post
-                        </a>
-                      </Link>
+                    <div className="rounded-full w-40 h-40 relative">
+                      <Image
+                        className="w-full h-full rounded-full object-cover object-top"
+                        src="/static/images/fahri.jpeg"
+                        alt=""
+                        fill
+                      />
                     </div>
-                  </div>
-                  <div className="rounded-full w-40 h-40 relative">
-                    <Image
-                      className="w-full h-full rounded-full object-cover object-top"
-                      src="/static/images/fahri.jpeg"
-                      alt=""
-                      fill
-                    />
                   </div>
                 </div>
               </div>
-              <div className='absolute bottom-0 left-1/2 transform -translate-x-1/2'>
-                <div className="grid grid-cols-2 h-20 gap-x-[1px] w-full -mb-[76px] shadow-[0px_0px_30px_30px_rgba(0,0,0,0.3)] shadow-cyan-500/40">
-                  <div className="w-full hfull bg-black"></div>
-                  <div className="w-full hfull bg-slate-800 ">
-                    <div className="absolute ml-2">
-                      <div className="px-2 py-1">
-                        <figure class=" flex justify-between">
-                          <div class="space-y-1 pt-6 text-center md:p-1 md:text-left">
-                            <p class="text-[5px] font-medium">
-                              “Tailwind CSS is the only framework .”
-                            </p>
-                            <figcaption class="font-medium">
-                              <div class="text-sky-500 dark:text-sky-400 text-[5px]">Sarah Dayan</div>
-                              <div class="text-white text-[5px]">
-                                Staff Engineer, Algolia
-                              </div>
-                              <div className="flex  space-x-1 mt-3">
-                                <Link href="/">
-                                  <a className="rounded-[2px] bg-blue-300 px-[1px] text-[5px]" >
-                                    Read Post
-                                  </a>
-                                </Link>
-
-                                <Link href="/">
-                                  <a className="rounded-[2px] bg-blue-300 px-[1px] text-[5px]" >
-                                    Read Post
-                                  </a>
-                                </Link>
-                              </div>
-                            </figcaption>
-                          </div>
-                          <Image
-                            class=""
-                            src="/static/images/fahri.webp"
-                            alt=""
-                            width="20"
-                            height="20"
-                          />
-                        </figure>
-                      </div>
-                    </div>
-                    <div className="mt-[50px]">
-                      <div className="font-bold text-lg text-blue-700 text-center ">.</div>
-                    </div>
-                  </div>
+              <div className='p-20 bg-red-200 h-[350px]'>
+                <div className="grid grid-cols-2 h-20 gap-x-[1px] w-full -mb-[77px]  blink-bg">
+                  <div className="w-full hfull bg-black border-2 border-black"></div>
+                  {secondMoni}
 
                 </div>
                 <div

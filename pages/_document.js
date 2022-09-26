@@ -23,7 +23,7 @@ class MyDocument extends Document {
           <meta name="theme-color" content="#000000" />
           <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
         </Head>
-        <body className=" bg-gray-900 text-white antialiased">
+        <body className="">
           <Main />
           <NextScript />
         </body>
