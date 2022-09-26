@@ -4,7 +4,7 @@ import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
 import formatDate from '@/lib/utils/formatDate'
-import Image from 'next/future/image';
+import Image from 'next/future/image'
 import Hero from '@/components/Hero'
 import RecentProjects from '@/components/RecentProjects'
 import TypeIt from 'typeit-react'
@@ -37,9 +37,9 @@ export default function Home({ posts }) {
 
   console.log(firsAction)
 
-  function renderOpenDiv(htm) {
+  function renderOpenDiv(cls) {
     return (
-      <div className="code">
+      <div className={['code', cls].join(' ')}>
         <span className="whitevs">{`<`}</span>
         <span className="redvs">div</span>{'  '}
         <span className="orangevs">className</span>
@@ -50,10 +50,10 @@ export default function Home({ posts }) {
     )
   }
 
-  function renderCloseDiv(htm) {
+  function renderCloseDiv(cls) {
     return (
 
-      <div className="code">
+      <div className={['code', cls].join(' ')}>
         <span className="whitevs">{`</`}</span>
         <span className="redvs">div</span>{'  '}
         <span className="whitevs">{`>`}</span>
@@ -144,9 +144,8 @@ export default function Home({ posts }) {
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
 
-      <div className="mt-10 flex h-[1200px] w-full">
-        <div className="flex w-1/12 justify-center">kosong</div>
-        <div className=" w-10/12">
+      <div className=" flex h-[1200px] w-full">
+        <div className=" w-full">
           <div className="grid grid-cols-2">
             <div className=" w-full  ">
               <div>
@@ -204,6 +203,7 @@ export default function Home({ posts }) {
                     <div className="text-redvs">React</div>
                     <div className="text-purplevs">from</div>
                     <div className="text-greenvs">'reactvs'</div>
+                    <br></br>
                   </div>
                   <div className="flex items-center space-x-2">
                     <div className="whitespacing text-purplevs ">export default function</div>
@@ -211,11 +211,11 @@ export default function Home({ posts }) {
                     <div className="text-bluevs">Home</div>
                     <div className="text-orangevs">{`( ) {`}</div>
                   </div>
-                  <div className="text-purplevs">{`return (`}</div>
+                  <div className="text-purplevs pl-4">{`return (`}</div>
                   <div className="code">
-                    {renderOpenDiv()}
-                    {renderOpenDiv()}
-                    {renderOpenDiv()}
+                    {renderOpenDiv('pl-8')}
+                    {renderOpenDiv('pl-12')}
+                    {renderOpenDiv('pl-16')}
 
                     {renderCloseDiv()}
                     {renderOpenDiv()}
@@ -242,46 +242,42 @@ export default function Home({ posts }) {
               </div>
             </div>
             <div className="w-full bg-white relative">
-              <div className=""></div>
-              <div className="flex items-center justify-center">
-                <div className="">
-                  <figure class="bg-slate-10i0 bg-slate-800  p-8 md:flex md:p-0">
-                    <div class="space-y-4 pt-6 text-center md:p-8 md:text-left">
-                      <p class="text-lg font-medium">
-                        “Tailwind CSS is the only framework .”
-                      </p>
-                      <figcaption class="font-medium">
-                        <div class="text-sky-500 dark:text-sky-400">Sarah Dayan</div>
-                        <div class="text-white">
-                          Staff Engineer, Algolia
-                        </div>
-                        <div className="flex  space-x-2">
-                          <Link href="/">
-                            <a className="rounded bg-blue-300 p-2" >
-                              Read Post
-                            </a>
-                          </Link>
-
-                          <Link href="/">
-                            <a className="rounded bg-blue-300 p-2" >
-                              Read Post
-                            </a>
-                          </Link>
-                        </div>
-                      </figcaption>
+              <div className="text-black ">Chrome tools</div>
+              <div className="flex items-center justify-center w-full p-4">
+                <div class=" bg-slate-800  p-4 flex items-center space-x-4 rounded-xl flex items-center justify-center w-full">
+                  <div class="space-y-3  text-center m md:text-left">
+                    <p class="text-lg font-medium">
+                      “Tailwind CSS is the only framework .”
+                    </p>
+                    <div class="text-sky-500 dark:text-sky-400">Sarah Dayan</div>
+                    <div class="text-white">
+                      Staff Engineer, Algolia
                     </div>
+                    <div className="flex  space-x-2">
+                      <Link href="/">
+                        <a className="rounded bg-blue-300 p-2 " >
+                          Read Post
+                        </a>
+                      </Link>
+                      <Link href="/">
+                        <a className="rounded bg-blue-300 p-2 " >
+                          Read Post
+                        </a>
+                      </Link>
+                    </div>
+                  </div>
+                  <div className="rounded-full w-40 h-40 relative">
                     <Image
-                      class="mx-auto h-24 w-24 rounded-full md:h-auto md:w-48 md:rounded-none"
-                      src="/static/images/fahri.webp"
+                      className="w-full h-full rounded-full object-cover object-top"
+                      src="/static/images/fahri.jpeg"
                       alt=""
-                      width="384"
-                      height="512"
+                      fill
                     />
-                  </figure>
+                  </div>
                 </div>
               </div>
               <div className='absolute bottom-0 left-1/2 transform -translate-x-1/2'>
-                <div className="grid grid-cols-2 h-20 gap-x-[1px] w-full -mb-[76px]">
+                <div className="grid grid-cols-2 h-20 gap-x-[1px] w-full -mb-[76px] shadow-[0px_0px_30px_30px_rgba(0,0,0,0.3)] shadow-cyan-500/40">
                   <div className="w-full hfull bg-black"></div>
                   <div className="w-full hfull bg-slate-800 ">
                     <div className="absolute ml-2">
@@ -345,7 +341,6 @@ export default function Home({ posts }) {
             </div>
           </div>
         </div>
-        <div className="flex w-1/12 justify-center">kosong</div>
       </div >
       {/* <Hero /> */}
       {/* <div className="container mx-auto divide-y divide-gray-700">

@@ -84,4 +84,9 @@ module.exports = withBundleAnalyzer({
 
     return config
   },
+  experimental: {
+    images: {
+      allowFutureImage: true,
+    },
+  },
 })
