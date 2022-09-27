@@ -1,33 +1,29 @@
-import React from 'react'
+import React from "react";
 
 export default function test() {
   return (
-    <div className="">
-      <figure class="bg-slate-10i0 bg-slate-800  p-8 md:flex md:p-0">
-        <div class="space-y-4 pt-6 text-center md:p-8 md:text-left">
-          <p class="text-lg font-medium">“Tailwind CSS is the only framework .”</p>
-          <figcaption class="font-medium">
-            <div class="text-sky-500 dark:text-sky-400">Sarah Dayan</div>
-            <div class="text-white">Staff Engineer, Algolia</div>
-            <div className="flex  space-x-2">
-              <Link href="/">
-                <a className="rounded bg-blue-300 p-2">Read Post</a>
-              </Link>
-
-              <Link href="/">
-                <a className="rounded bg-blue-300 p-2">Read Post</a>
-              </Link>
-            </div>
-          </figcaption>
+    <div class=" mx-auto mt-6  flex w-[550px] items-center justify-center space-x-4 rounded-xl bg-slate-800 p-4">
+      <div class=" ">
+        <p class="text-lg font-medium">“Next JS & Tailwind For The Win .”</p>
+        <div class="mt-3 text-sky-500 dark:text-sky-400">Sarah Dayan</div>
+        <div class="text-white">Staff Engineer, Algolia</div>
+        <div className="mt-3  flex space-x-2">
+          <Link href="/">
+            <a className="rounded bg-blue-300 p-2 ">Read the blog</a>
+          </Link>
+          <Link href="/">
+            <a className="rounded bg-blue-300 p-2 ">Leran more about me</a>
+          </Link>
         </div>
+      </div>
+      <div className=" relative h-40 w-40">
         <Image
-          class="mx-auto h-24 w-24 rounded-full md:h-auto md:w-48 md:rounded-none"
-          src="/static/images/fahri.webp"
+          className="h-full w-full rounded-full object-cover object-top"
+          src="/static/images/fahrri.jpeg"
           alt=""
-          width="384"
-          height="512"
+          fill
         />
-      </figure>
+      </div>
     </div>
-  )
+  );
 }
