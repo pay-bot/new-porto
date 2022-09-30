@@ -326,7 +326,7 @@ export default function Hero() {
             <div className="flex bg-[#282c34]">
               <div className="px-[2px]">
                 {Array.from({ length: 40 }, (_, x) => (
-                  <div className="codef text-[1px] text-whitevs">{x > 0 && x}</div>
+                  <div key={x} className="codef text-[1px] text-whitevs">{x > 0 && x}</div>
                 ))}
               </div>
 
@@ -585,7 +585,7 @@ export default function Hero() {
                 <div className="flex bg-[#282c34]">
                   <div className="px-2">
                     {Array.from({ length: 30 }, (_, x) => (
-                      <div className="code text-whitevs">{x > 0 && x}</div>
+                      <div key={x} className="code text-whitevs">{x > 0 && x}</div>
                     ))}
                   </div>
 
