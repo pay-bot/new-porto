@@ -1,36 +1,60 @@
-import Link from '@/components/Link'
+import Link from 'next/link'
 
-export default function Pagination({ totalPages, currentPage }) {
-  const prevPage = parseInt(currentPage) - 1 > 0
-  const nextPage = parseInt(currentPage) + 1 <= parseInt(totalPages)
+export default function Pagination ({ prev, next, page, pages, lang = 'id' }) {
+  const hrefSlug = lang === 'id' ? '/page/[page]' : '/en/page/[page]'
+  const asSlug = lang === 'id' ? '/page/' : '/en/page/'
 
   return (
-    <div className="space-y-2 pt-6 pb-8 md:space-y-5">
-      <nav className="flex justify-between">
-        {!prevPage && (
-          <button rel="previous" className="cursor-auto disabled:opacity-50" disabled={!prevPage}>
-            Previous
-          </button>
-        )}
-        {prevPage && (
-          <Link href={currentPage - 1 === 1 ? `/blog/` : `/blog/page/${currentPage - 1}`}>
-            <button rel="previous">Previous</button>
-          </Link>
-        )}
-        <span>
-          {currentPage} of {totalPages}
-        </span>
-        {!nextPage && (
-          <button rel="next" className="cursor-auto disabled:opacity-50" disabled={!nextPage}>
-            Next
-          </button>
-        )}
-        {nextPage && (
-          <Link href={`/blog/page/${currentPage + 1}`}>
-            <button rel="next">Next</button>
-          </Link>
-        )}
-      </nav>
+    <div className="flex justify-between items-center mb-8">
+      {prev ? (
+        <Link as={`${asSlug}${prev}`} href={hrefSlug}>
+          <a aria-label="Previous page">
+            <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-l focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2">
+              &lt; Prev
+            </button>
+          </a>
+        </Link>
+      ) : (
+          <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l cursor-not-allowed">
+          &lt; Prev
+        </button>
+      )}
+
+      <div className="hidden md:flex">
+        {pages &&
+          pages.length > 0 &&
+          pages.map((p, idx) => (
+            <Link as={`${asSlug}${p}`} href={hrefSlug} key={p}>
+              <a aria-label={`Page ${p}`}>
+                <button
+                  className={`${
+                    p.toString() === page.toString()
+                      ? 'bg-red-500 hover:bg-red-700 text-white'
+                      : 'text-red-500'
+                  } border-2 border-red-500 font-bold py-2 px-4 rounded  focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 ${
+                    idx !== pages.length - 1 ? 'mr-2' : ''
+                  }`}
+                >
+                  {p}
+                </button>
+              </a>
+            </Link>
+          ))}
+      </div>
+
+      {next ? (
+        <Link as={`${asSlug}${next}`} href={hrefSlug}>
+          <a aria-label="Next page">
+            <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-r focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2">
+              Next &gt;
+            </button>
+          </a>
+        </Link>
+      ) : (
+        <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r cursor-not-allowed">
+          Next &gt;
+        </button>
+      )}
     </div>
   )
 }
