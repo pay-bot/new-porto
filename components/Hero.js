@@ -285,6 +285,31 @@ export default function Hero() {
     }
   }, [counter])
 
+  const handleVsCode = () => {
+    clearInterval(timer.current)
+    setLine6Class(false)
+    setLine8Class(false)
+    setLine8Text(false)
+    setLine9Class(false)
+    setLine9Text(false)
+    setLine10Class(false)
+    setLine10Text(false)
+    setLine11Class(false)
+    setLine12Text(false)
+    setLine13Class(false)
+    setLine13Text(false)
+    setLine15Text(false)
+    setLine16Class(false)
+    setLine16Text(false)
+    setLine20Class(false)
+    setLine22Class(false)
+    setLine23Text(false)
+    timer.current = setInterval(() => setCounter((v) => v + 1), delay * 500)
+    // return () => {
+    //   clearInterval(timer.current)
+    // }
+  }
+
   const firstMoni = (
     <div className="border-x-1 border-t-1 h-full border border-b-4 border-black bg-white">
       <div className="h-full overflow-hidden  bg-[#282c34]">
@@ -453,7 +478,7 @@ export default function Hero() {
               exit="exit"
               variants={ln6ClassVariantsMini}
             >
-              <div class=" ">
+              <div className=" ">
                 {line9Class && (
                   <motion.p
                     className="text-[4px] font-medium"
@@ -542,157 +567,178 @@ export default function Hero() {
     </div> */}
     </div>
   )
-  return (
-    <div TextName=" flex h-[660px] max-w-[1366px] mx-auto">
-      <div TextName=" w-full">
-        <div className="grid grid-cols-2">
-          <div className="overflow-x-auto   bg-[#282c34]">
-            <div>
-              <div className="flex space-x-3 bg-[#21252b] px-2 py-1 ">
-                <img src="./static/images/vscode.svg" alt="" className="h-5 w-5" />
-                <div className="text-sm">File</div>
-                <div className="text-sm">Edit</div>
-                <div className="text-sm">Terminal</div>
-              </div>
-              <div className="w-full  bg-[#21252b] py-1">
-                <div className="flex w-fit items-center border-r border-black bg-[#282c34]">
-                  <div className="flex w-fit items-center space-x-2 border-b border-white px-2 py-1">
-                    <img src="./static/images/react.svg" alt="" className="h-4 w-4" />
-                    <div className="text-sm">index.jsx</div>
-                    <img src="./static/images/cross.svg" alt="" className="h-2 w-2" />
-                  </div>
-                </div>
-              </div>
-              <div className="h-[550px] w-full   ">
-                <div className="   border-b border-gray-800">
-                  <div className="flex items-center space-x-1">
-                    <div className="flex w-fit items-center  space-x-2 px-2 py-1">
-                      {/* <img src="./static/images/react.svg" alt="" className="w-4 h-4" /> */}
-                      <div className="text-sm">pages</div>
-                      <img src="./static/images/right.svg" alt="" className="h-2 w-2" />
-                    </div>
-                    <div className="flex w-fit items-center space-x-2 ">
-                      <img src="./static/images/react.svg" alt="" className="h-4 w-4" />
-                      <div className="text-sm">index.jsx</div>
-                      <img src="./static/images/right.svg" alt="" className="h-2 w-2" />
-                    </div>
-                    <div className="flex w-fit items-center space-x-2 ">
-                      <img src="./static/images/cube.svg" alt="" className="h-4 w-4" />
-                      <div className="text-sm">Home</div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex bg-[#282c34]">
-                  <div className="px-2">
-                    {Array.from({ length: 30 }, (_, x) => (
-                      <div key={x} className="code text-whitevs">{x > 0 && x}</div>
-                    ))}
-                  </div>
+  const vsCodeScreen = <div className="overflow-x-auto   bg-[#282c34]">
+    <div>
+      <div className="flex space-x-3 bg-[#21252b] px-2 py-1 ">
+        <img src="./static/images/vscode.svg" alt="" className="h-5 w-5" />
+        <div className="text-sm">File</div>
+        <div className="text-sm">Edit</div>
+        <div className="text-sm">Terminal</div>
+      </div>
+      <div className="w-full  bg-[#21252b] py-1">
+        <div className="flex w-fit items-center border-r border-black bg-[#282c34]">
+          <div className="flex w-fit items-center space-x-2 border-b border-white px-2 py-1">
+            <img src="./static/images/react.svg" alt="" className="h-4 w-4" />
+            <div className="text-sm">index.jsx</div>
+            <img src="./static/images/cross.svg" alt="" className="h-2 w-2" />
+          </div>
+        </div>
+      </div>
+      <div className="h-[550px] w-full   ">
+        <div className="   border-b border-gray-800">
+          <div className="flex items-center space-x-1">
+            <div className="flex w-fit items-center  space-x-2 px-2 py-1">
+              {/* <img src="./static/images/react.svg" alt="" className="w-4 h-4" /> */}
+              <div className="text-sm">pages</div>
+              <img src="./static/images/right.svg" alt="" className="h-2 w-2" />
+            </div>
+            <div className="flex w-fit items-center space-x-2 ">
+              <img src="./static/images/react.svg" alt="" className="h-4 w-4" />
+              <div className="text-sm">index.jsx</div>
+              <img src="./static/images/right.svg" alt="" className="h-2 w-2" />
+            </div>
+            <div className="flex w-fit items-center space-x-2 ">
+              <img src="./static/images/cube.svg" alt="" className="h-4 w-4" />
+              <div className="text-sm">Home</div>
+            </div>
+          </div>
+        </div>
+        <div className="flex bg-[#282c34]">
+          <div className="px-2">
+            {Array.from({ length: 30 }, (_, x) => (
+              <div key={x} className="code text-whitevs">{x > 0 && x}</div>
+            ))}
+          </div>
 
-                  <div className="code w-[683px]">
-                    {renderImport('Link', 'next/link')}
-                    {renderImport('Image', 'next/future/image')}
-                    <br />
-                    <div className="flex items-center space-x-2">
-                      <div className="whitespacing text-purplevs ">export default function</div>
+          <div className="code w-[683px]">
+            {renderImport('Link', 'next/link')}
+            {renderImport('Image', 'next/future/image')}
+            <br />
+            <div className="flex items-center space-x-2">
+              <div className="whitespacing text-purplevs ">export default function</div>
 
-                      <div className="text-bluevs">Home</div>
-                      <div className="text-orangevs">{`( ) {`}</div>
-                    </div>
-                    <div className="pl-4 text-purplevs">{`return (`}</div>
-                    <div className="code whitespace-nowrap">
-                      <div className="pl-7">
-                        {renderOpenDiv(
-                          renderClass(
-                            line6Class && (
-                              <CustomTypeIt>
-                                bg-slate-800 p-4 space-x-4 rounded-xl flex items-center
-                                justify-center w-[550px] h-[190px] mx-auto
-                              </CustomTypeIt>
-                            )
-                          )
+              <div className="text-bluevs">Home</div>
+              <div className="text-orangevs">{`( ) {`}</div>
+            </div>
+            <div className="pl-4 text-purplevs">{`return (`}</div>
+            <div className="code whitespace-nowrap">
+              <div className="pl-7">
+                {renderOpenDiv(
+                  renderClass(
+                    line6Class && (
+                      <CustomTypeIt>
+                        bg-slate-800 p-4 space-x-4 rounded-xl flex items-center
+                        justify-center w-[550px] h-[190px] mx-auto
+                      </CustomTypeIt>
+                    )
+                  )
+                )}
+                <div className="pl-4">
+                  {renderOpenDiv()}
+                  <div className="pl-5">
+                    {renderP(
+                      line8Class && <CustomTypeIt>text-lg font-medium</CustomTypeIt>,
+                      line8Text && (
+                        <CustomTypeIt>“Next JS & Tailwind For The Win .”</CustomTypeIt>
+                      )
+                    )}
+                    {renderP(
+                      line9Class && <CustomTypeIt>mt-3 text-sky-500</CustomTypeIt>,
+                      line9Text && <CustomTypeIt>Sarah Dayan</CustomTypeIt>
+                    )}
+                    {renderP(
+                      line10Class && <CustomTypeIt>text-white</CustomTypeIt>,
+                      line10Text && <CustomTypeIt>Staff Engineer, Algolia</CustomTypeIt>
+                    )}
+                    {renderOpenDiv(
+                      line11Class && <CustomTypeIt>mt-3 flex space-x-2</CustomTypeIt>
+                    )}
+                    <div className="pl-4">
+                      {renderOpenLink(line12Text && <CustomTypeIt>/blog</CustomTypeIt>)}
+                      <div className="pl-4">
+                        {renderA(
+                          line13Class && (
+                            <CustomTypeIt>rounded bg-blue-300 p-2 </CustomTypeIt>
+                          ),
+                          line13Text && <CustomTypeIt>Read the blog</CustomTypeIt>
                         )}
-                        <div className="pl-4">
-                          {renderOpenDiv()}
-                          <div className="pl-5">
-                            {renderP(
-                              line8Class && <CustomTypeIt>text-lg font-medium</CustomTypeIt>,
-                              line8Text && (
-                                <CustomTypeIt>“Next JS & Tailwind For The Win .”</CustomTypeIt>
-                              )
-                            )}
-                            {renderP(
-                              line9Class && <CustomTypeIt>mt-3 text-sky-500</CustomTypeIt>,
-                              line9Text && <CustomTypeIt>Sarah Dayan</CustomTypeIt>
-                            )}
-                            {renderP(
-                              line10Class && <CustomTypeIt>text-white</CustomTypeIt>,
-                              line10Text && <CustomTypeIt>Staff Engineer, Algolia</CustomTypeIt>
-                            )}
-                            {renderOpenDiv(
-                              line11Class && <CustomTypeIt>mt-3 flex space-x-2</CustomTypeIt>
-                            )}
-                            <div className="pl-4">
-                              {renderOpenLink(line12Text && <CustomTypeIt>/blog</CustomTypeIt>)}
-                              <div className="pl-4">
-                                {renderA(
-                                  line13Class && (
-                                    <CustomTypeIt>rounded bg-blue-300 p-2 </CustomTypeIt>
-                                  ),
-                                  line13Text && <CustomTypeIt>Read the blog</CustomTypeIt>
-                                )}
-                              </div>
-                              {renderCloseLink()}
-                              {renderOpenLink(line15Text && <CustomTypeIt>/about</CustomTypeIt>)}
-                              <div className="pl-4">
-                                {renderA(
-                                  line16Class && (
-                                    <CustomTypeIt>rounded bg-blue-300 p-2 </CustomTypeIt>
-                                  ),
-                                  line16Text && <CustomTypeIt>Learn About Me</CustomTypeIt>
-                                )}
-                              </div>
-                              {renderCloseLink()}
-                            </div>
-                            {renderCloseDiv()}
-                          </div>
-                          {renderCloseDiv()}
-                          <div className="pl-">
-                            {renderOpenDiv(
-                              line20Class && <CustomTypeIt>relative h-40 w-40</CustomTypeIt>
-                            )}
-                            <div className="pl-4">
-                              {renderImage(
-                                line22Class && (
-                                  <CustomTypeIt>
-                                    h-full w-full rounded-full object-cover object-top
-                                  </CustomTypeIt>
-                                ),
-                                line23Text && (
-                                  <CustomTypeIt>/static/images/fahri.jpeg</CustomTypeIt>
-                                ),
-                                <CustomTypeIt>fahri</CustomTypeIt>
-                              )}
-                            </div>
-                            {renderCloseDiv()}
-                          </div>
-                        </div>
-                        <div className="pl-">{renderCloseDiv()}</div>
                       </div>
-                      <div className="code">
-                        <span className="purplevs pl-4">{`)`}</span>
-                        <span className="whitevs">{`;`}</span>
-                        <div className="code">
-                          <span className="orangevs">{`}`}</span>
-                        </div>
+                      {renderCloseLink()}
+                      {renderOpenLink(line15Text && <CustomTypeIt>/about</CustomTypeIt>)}
+                      <div className="pl-4">
+                        {renderA(
+                          line16Class && (
+                            <CustomTypeIt>rounded bg-blue-300 p-2 </CustomTypeIt>
+                          ),
+                          line16Text && <CustomTypeIt>Learn About Me</CustomTypeIt>
+                        )}
                       </div>
+                      {renderCloseLink()}
                     </div>
+                    {renderCloseDiv()}
                   </div>
-                  {/* </TypeIt> */}
+                  {renderCloseDiv()}
+                  <div className="pl-">
+                    {renderOpenDiv(
+                      line20Class && <CustomTypeIt>relative h-40 w-40</CustomTypeIt>
+                    )}
+                    <div className="pl-4">
+                      {renderImage(
+                        line22Class && (
+                          <CustomTypeIt>
+                            h-full w-full rounded-full object-cover object-top
+                          </CustomTypeIt>
+                        ),
+                        line23Text && (
+                          <CustomTypeIt>/static/images/fahri.jpeg</CustomTypeIt>
+                        ),
+                        <CustomTypeIt>fahri</CustomTypeIt>
+                      )}
+                    </div>
+                    {renderCloseDiv()}
+                  </div>
+                </div>
+                <div className="pl-">{renderCloseDiv()}</div>
+              </div>
+              <div className="code">
+                <span className="purplevs pl-4">{`)`}</span>
+                <span className="whitevs">{`;`}</span>
+                <div className="code">
+                  <span className="orangevs">{`}`}</span>
                 </div>
               </div>
             </div>
           </div>
+          {/* </TypeIt> */}
+        </div>
+      </div>
+    </div>
+  </div>
+
+const [numeroAleatorio, setNumeroAleatorio] = useState(0);
+  const ValorMax = 10
+  const ValorMin = 1
+
+
+  const gerarNumero = useCallback(() => {
+    const newNumber = parseInt(Math.random() * (ValorMax - ValorMin)) + ValorMin;
+    setNumeroAleatorio(newNumber);
+    if (ValorMax < ValorMin) {
+      alert('Max value should be higher than Min value');
+      setNumeroAleatorio('Error');
+    }
+  }, [ValorMax, ValorMin]);
+
+  console.log(numeroAleatorio)
+
+  return (
+    <div TextName=" flex h-[660px] max-w-[1366px] mx-auto">
+      <div TextName=" w-full">
+        <div className="grid grid-cols-2">
+{/* {vsCodeScreen} */}
+<div onClick={gerarNumero} className="">
+  test
+</div>
           <div className="relative  w-full ">
             <div className="h-[280px] bg-white p-1">
               <div className="h-[30px]">
@@ -709,7 +755,7 @@ export default function Hero() {
                     exit="exit"
                     variants={ln6ClassVariants}
                   >
-                    <div class=" ">
+                    <div className=" ">
                       {line9Class && (
                         <motion.p
                           className="text-lg font-medium"
@@ -797,7 +843,7 @@ export default function Hero() {
                 )}
               </AnimatePresence>
             </div>
-            <div className="h-[360px] bg-black bg-opacity-10 p-2">
+            <div className="h-[360px] bg-black/90  p-2">
               <div className="h-[60px]">t</div>
               <div className="h-[60px]">t</div>
               <div className="relative flex h-[240px] items-end justify-center">
@@ -823,6 +869,7 @@ export default function Hero() {
               </div>
             </div>
           </div>
+          <div onClick={handleVsCode} className="">tex</div>
         </div>
       </div>
     </div>

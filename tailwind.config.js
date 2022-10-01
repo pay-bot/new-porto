@@ -2,7 +2,7 @@ module.exports = {
   experimental: {
     optimizeUniversalDefaults: true,
   },
-  darkMode: 'class',
+  darkMode: 'media',
   content: [
     './styles/**/*.css',
     './components/**/*.js',
@@ -35,7 +35,7 @@ module.exports = {
         medium: '0 8px 30px rgba(0, 0, 0, 0.12)'
       },
       colors: {
-  
+
         purplevs: '#a173c2',
         redvs: '#e46b76',
         greenvs: '#98c177',

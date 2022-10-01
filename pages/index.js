@@ -18,15 +18,7 @@ export default function Index({ data, page, pages, featuredPosts }) {
         </Head>
         <Container>
           <Hero />
-          {featuredPosts && (
-            <>
-              <h2 className="mb-2 text-3xl md:text-4xl font-heading font-bold tracking-tighter leading-tight">PERSONAL STORIES</h2>
-              <FeaturedPost
-                posts={featuredPosts}
-                lang="id"
-              />
-            </>
-          )}
+         
           <Home posts={data} lang="id" />
           <Pagination next="2" pages={pages} page={page} lang="id" />
         </Container>
