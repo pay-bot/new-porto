@@ -18,9 +18,9 @@ export default function Index({ data, page, pages, featuredPosts }) {
         </Head>
         <Container>
           <Hero />
-         
-          <Home posts={data} lang="id" />
-          <Pagination next="2" pages={pages} page={page} lang="id" />
+
+          {/* <Home posts={data} lang="id" />
+          <Pagination next="2" pages={pages} page={page} lang="id" /> */}
         </Container>
       </Layout>
     </>

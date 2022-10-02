@@ -567,7 +567,7 @@ export default function Hero() {
     </div> */}
     </div>
   )
-  const vsCodeScreen = <div className="overflow-x-auto   bg-[#282c34]">
+  const firstScreen = <div className="overflow-x-auto   bg-[#282c34]">
     <div>
       <div className="flex space-x-3 bg-[#21252b] px-2 py-1 ">
         <img src="./static/images/vscode.svg" alt="" className="h-5 w-5" />
@@ -715,163 +715,271 @@ export default function Hero() {
     </div>
   </div>
 
-const [numeroAleatorio, setNumeroAleatorio] = useState(0);
-  const ValorMax = 10
-  const ValorMin = 1
+  const secondScreen = <div className="relative  w-full ">
+    <div className="h-[280px] bg-white p-1">
+      <div className="h-[30px]">
+        <div className="w-full rounded-xl bg-[#f1f3f4] py-1 px-3 text-sm text-black">
+          http://localhost:3000/
+        </div>
+      </div>
+      <AnimatePresence>
+        {line8Class && (
+          <motion.div
+            className=" mx-auto mt-6  flex h-[190px] w-[550px] items-center justify-center space-x-4 rounded-xl bg-slate-800 p-4"
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={ln6ClassVariants}
+          >
+            <div className=" ">
+              {line9Class && (
+                <motion.p
+                  className="text-lg font-medium"
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  variants={ln8TextVariants}
+                >
+                  “Next JS & Tailwind For The Win .”
+                </motion.p>
+              )}
+              {line10Class && (
+                <motion.p
+                  className="mt-3 text-sky-500 dark:text-sky-400"
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  variants={ln9TextVariants}
+                >
+                  Sarah Dayan
+                </motion.p>
+              )}
+              {line11Class && (
+                <motion.p
+                  className="text-white"
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  variants={ln10TextVariants}
+                >
+                  Staff Engineer, Algolia
+                </motion.p>
+              )}
 
-
-  const gerarNumero = useCallback(() => {
-    const newNumber = parseInt(Math.random() * (ValorMax - ValorMin)) + ValorMin;
-    setNumeroAleatorio(newNumber);
-    if (ValorMax < ValorMin) {
-      alert('Max value should be higher than Min value');
-      setNumeroAleatorio('Error');
-    }
-  }, [ValorMax, ValorMin]);
-
-  console.log(numeroAleatorio)
-
-  return (
-    <div TextName=" flex h-[660px] max-w-[1366px] mx-auto">
-      <div TextName=" w-full">
-        <div className="grid grid-cols-2">
-{/* {vsCodeScreen} */}
-<div onClick={gerarNumero} className="">
-  test
-</div>
-          <div className="relative  w-full ">
-            <div className="h-[280px] bg-white p-1">
-              <div className="h-[30px]">
-                <div className="w-full rounded-xl bg-[#f1f3f4] py-1 px-3 text-sm text-black">
-                  http://localhost:3000/
-                </div>
-              </div>
-              <AnimatePresence>
-                {line8Class && (
+              <div className="mt-3  flex space-x-2">
+                {line15Text && (
                   <motion.div
-                    className=" mx-auto mt-6  flex h-[190px] w-[550px] items-center justify-center space-x-4 rounded-xl bg-slate-800 p-4"
+                    className="rounded bg-blue-300 p-2"
                     initial="initial"
                     animate="animate"
                     exit="exit"
-                    variants={ln6ClassVariants}
+                    variants={ln13TextVariants}
                   >
-                    <div className=" ">
-                      {line9Class && (
-                        <motion.p
-                          className="text-lg font-medium"
-                          initial="initial"
-                          animate="animate"
-                          exit="exit"
-                          variants={ln8TextVariants}
-                        >
-                          “Next JS & Tailwind For The Win .”
-                        </motion.p>
-                      )}
-                      {line10Class && (
-                        <motion.p
-                          className="mt-3 text-sky-500 dark:text-sky-400"
-                          initial="initial"
-                          animate="animate"
-                          exit="exit"
-                          variants={ln9TextVariants}
-                        >
-                          Sarah Dayan
-                        </motion.p>
-                      )}
-                      {line11Class && (
-                        <motion.p
-                          className="text-white"
-                          initial="initial"
-                          animate="animate"
-                          exit="exit"
-                          variants={ln10TextVariants}
-                        >
-                          Staff Engineer, Algolia
-                        </motion.p>
-                      )}
-
-                      <div className="mt-3  flex space-x-2">
-                        {line15Text && (
-                          <motion.div
-                            className="rounded bg-blue-300 p-2"
-                            initial="initial"
-                            animate="animate"
-                            exit="exit"
-                            variants={ln13TextVariants}
-                          >
-                            <Link href="/blog">
-                              <a href="" className="">
-                                Read the blog
-                              </a>
-                            </Link>
-                          </motion.div>
-                        )}
-                        {line20Class && (
-                          <motion.div
-                            className="rounded bg-blue-300 p-2"
-                            initial="initial"
-                            animate="animate"
-                            exit="exit"
-                            variants={ln13TextVariants}
-                          >
-                            <Link href="/about">
-                              <a href="" className="">
-                                Learn about me
-                              </a>
-                            </Link>
-                          </motion.div>
-                        )}
-                      </div>
-                    </div>
-                    {line23Text && (
-                      <motion.div
-                        className=" relative h-40 w-40"
-                        initial="initial"
-                        animate="animate"
-                        exit="exit"
-                        variants={ln23SrcVariants}
-                      >
-                        <Image
-                          className="h-full w-full rounded-full  object-cover object-top"
-                          src="/static/images/fahri.jpeg"
-                          alt=""
-                          fill
-                        />
-                      </motion.div>
-                    )}
+                    <Link href="/blog">
+                      <a href="" className="">
+                        Read the blog
+                      </a>
+                    </Link>
                   </motion.div>
                 )}
-              </AnimatePresence>
+                {line20Class && (
+                  <motion.div
+                    className="rounded bg-blue-300 p-2"
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    variants={ln13TextVariants}
+                  >
+                    <Link href="/about">
+                      <a href="" className="">
+                        Learn about me
+                      </a>
+                    </Link>
+                  </motion.div>
+                )}
+              </div>
             </div>
-            <div className="h-[360px] bg-black/90  p-2">
-              <div className="h-[60px]">t</div>
-              <div className="h-[60px]">t</div>
-              <div className="relative flex h-[240px] items-end justify-center">
-                <div className="">
-                  <div className="blink-bg -mb-[77px] grid h-20 w-full grid-cols-2  gap-x-[1px]">
-                    {/* <div className="w-full hfull bg-black border-2 border-black"></div> */}
-                    {firstMoni}
-                    {secondMoni}
-                  </div>
-                  <div className="relative mx-auto h-60 w-60">
-                    <Image
-                      src="/static/images/programer.png"
-                      alt=""
-                      width="350"
-                      height="350"
-                      layuot="fill"
-                    // sizes="100vw"
+            {line23Text && (
+              <motion.div
+                className=" relative h-40 w-40"
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                variants={ln23SrcVariants}
+              >
+                <Image
+                  className="h-full w-full rounded-full  object-cover object-top"
+                  src="/static/images/fahri.jpeg"
+                  alt=""
+                  fill
+                />
+              </motion.div>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+    <div className="h-[360px] bg-black/90  p-2">
+      <div className="h-[60px]">t</div>
+      <div className="h-[60px]">t</div>
+      <div className="relative flex h-[240px] items-end justify-center">
+        <div className="">
+          <div className="blink-bg -mb-[77px] grid h-20 w-full grid-cols-2  gap-x-[1px]">
+            {/* <div className="w-full hfull bg-black border-2 border-black"></div> */}
+            {firstMoni}
+            {secondMoni}
+          </div>
+          <div className="relative mx-auto h-60 w-60">
+            <Image
+              src="/static/images/programer.png"
+              alt=""
+              width="350"
+              height="350"
+              layuot="fill"
+            // sizes="100vw"
 
-                    // objectFit='contain'
-                    />
+            // objectFit='contain'
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  const [count, setCount] = useState(false);
+  const [playerValue, setPlayerValue] = useState({ taruhan: 0, tebakan: 0 });
+
+  const [playerBall, setPlayerBall] = useState(10);
+  const [cpuBall, setCpuBall] = useState(10);
+  const [pemenang, setPemenang] = useState(null);
+
+  const [taruhanCpu, setTaruhanCpu] = useState(0);
+  const [tebakanCpu, setTebakanCpu] = useState(0);
+
+  const { taruhan, tebakan } = playerValue;
+
+  const maxTebakanCpu = parseInt(playerBall, 10);
+  const minTebakanCpu = playerBall;
+
+  const maxTaruhanCpu = parseInt(cpuBall, 10);
+  const minTaruhan = 1;
+
+  const gerarNumero = useCallback(() => {
+    const newTaruhanCpu = parseInt(Math.random() * (maxTaruhanCpu - minTaruhan), 10) + minTaruhan;
+    setTaruhanCpu(newTaruhanCpu);
+
+    const newTebakanCpu = parseInt(Math.random() * (maxTebakanCpu - minTaruhan), 10) + minTaruhan + newTaruhanCpu;
+    setTebakanCpu(newTebakanCpu);
+    if (maxTebakanCpu < minTaruhan) {
+      alert('Max value should be higher than Min value');
+      setTaruhanCpu('Error');
+    }
+
+    if (maxTebakanCpu < minTaruhan) {
+      alert('Max value should be higher than Min value');
+      setTaruhanCpu('Error');
+    }
+  }, [maxTaruhanCpu, maxTebakanCpu]);
+
+  // console.log(taruhanCpu, tebakanCpu)
+
+  useEffect(() => {
+    if (parseInt(playerValue.tebakan, 10) === parseInt(playerValue.taruhan, 10) + parseInt(taruhanCpu, 10)) {
+      setPemenang('player');
+      console.log('pemenang', pemenang);
+    }
+
+    if (parseInt(tebakanCpu, 10) === parseInt(playerValue.taruhan, 10) + parseInt(taruhanCpu, 10)) {
+      setPemenang('cpu');
+      console.log('pemenang', pemenang);
+    }
+
+
+
+
+
+    console.log('taruhancpu', taruhanCpu);
+
+    console.log('tebakancpu', tebakanCpu);
+    console.log('tebakanplayer', tebakan);
+
+    console.log('taruhanP', taruhan, 'taruhancpu', taruhanCpu, 'benar', parseInt(taruhan, 10) + parseInt(taruhanCpu, 10));
+  }, [maxTebakanCpu, minTaruhan, taruhanCpu, taruhan, tebakan, pemenang, tebakanCpu, playerValue.tebakan, playerValue.taruhan, cpuBall, playerBall]);
+
+  console.log('render, profile fields: ', playerValue);
+
+  useEffect(() => {
+    if (pemenang && pemenang === 'cpu') {
+      const newPlayerBall = parseInt(playerBall, 10) - parseInt(playerValue.taruhan, 10);
+      setPlayerBall(newPlayerBall);
+      // console.log('pemenang', pemenang);
+    }
+    if (pemenang && pemenang === 'player') {
+      const newPlayerBall = parseInt(playerBall, 10) + parseInt(taruhanCpu, 10);
+      setPlayerBall(newPlayerBall);
+      // console.log('pemenang', pemenang);
+    }
+  }, [pemenang])
+
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setPlayerValue(() => {
+      return {
+        ...playerValue,
+        [name]: value,
+      };
+    });
+  };
+
+  return (
+    <div className=" flex h-[660px] max-w-[1366px] mx-auto">
+      <div className=" w-full">
+        <div className="grid grid-cols-2">
+          {/* {firstScreen} */}
+          {/* {secondScreen} */}
+          {/* <div onClick={gerarNumero} className="">
+            test
+          </div> */}
+          <div className="h-[500px] flex flex-col justify-between">
+            <div className="">
+              <div className="w-full border-2 border-blue-300 ">Player 1</div>
+              <div className="flex items-center justify-center">
+                <div className="w-3/12">
+                  <div className="">Taruhan</div>
+                  <div>
+                    {' '}
+                    <input label="taruhan" className="h-28 w-24 text-6xl text-center" type="number" onChange={handleChange} name="taruhan" value={parseInt(taruhan, 10)} />
+                  </div>
+                </div>
+                <div className=" w-6/12 h-[100px] border-2 border-red-400">
+                  <div className="text-2xl text-center text-white">{playerBall}</div>
+                </div>
+                <div className="w-3/12">
+                  {' '}
+                  <div className="">Tebakan</div>
+                  <div>
+                    {' '}
+                    <input label="tebakan" className="h-28 w-24 text-6xl text-center" type="number" onChange={handleChange} name="tebakan" value={parseInt(tebakan)} />
                   </div>
                 </div>
               </div>
             </div>
+            <div className="">
+              <div className="">
+                <div onClick={gerarNumero} className="flex items-center justify-center">
+                  Pusy Your Luck
+                </div>
+              </div>
+            </div>
+            <div className="">
+              <div className="">CPU</div>
+            </div>
           </div>
-          <div onClick={handleVsCode} className="">tex</div>
+
+          {/* <div onClick={handleVsCode} className="">tex</div> */}
         </div>
       </div>
     </div>
-  )
+  );
 }
