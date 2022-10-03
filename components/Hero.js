@@ -209,21 +209,21 @@ export default function Hero() {
   const [line23Text, setLine23Text] = useState(false)
   const timer = useRef(null) // we can save timer in useRef and pass it to child
 
-  useEffect(() => {
-    // useRef value stored in .current property
-    timer.current = setInterval(() => setCounter((v) => v + 1), delay * 500)
+  // useEffect(() => {
+  //   // useRef value stored in .current property
+  //   timer.current = setInterval(() => setCounter((v) => v + 1), delay * 500)
 
-    // clear on component unmount
-    return () => {
-      clearInterval(timer.current)
-    }
-  }, [])
+  //   // clear on component unmount
+  //   return () => {
+  //     clearInterval(timer.current)
+  //   }
+  // }, [])
 
-  useEffect(() => {
-    if (counter < 70) return
+  // useEffect(() => {
+  //   if (counter < 70) return
 
-    clearInterval(timer.current)
-  }, [counter])
+  //   clearInterval(timer.current)
+  // }, [counter])
 
   useEffect(() => {
     if (counter) {
@@ -884,43 +884,51 @@ export default function Hero() {
   // console.log(taruhanCpu, tebakanCpu)
 
   useEffect(() => {
-    if (parseInt(playerValue.tebakan, 10) === parseInt(playerValue.taruhan, 10) + parseInt(taruhanCpu, 10)) {
-      setPemenang('player');
-      console.log('pemenang', pemenang);
+    if (parseInt(playerValue.tebakan, 10) === parseInt(playerValue.taruhan, 10) - parseInt(taruhanCpu, 10)) {
+      setPemenang('player')
+      if (pemenang && pemenang === 'player') {
+        const newPlayerBall = parseInt(playerBall, 10) + parseInt(taruhanCpu, 10);
+        setPlayerBall(newPlayerBall);
+        console.log('pemenang', pemenang)
+        setPemenang(null)
+      }
     }
 
     if (parseInt(tebakanCpu, 10) === parseInt(playerValue.taruhan, 10) + parseInt(taruhanCpu, 10)) {
-      setPemenang('cpu');
-      console.log('pemenang', pemenang);
+      setPemenang('cpu')
+      if (pemenang && pemenang === 'cpu') {
+        const newPlayerBall = parseInt(playerBall, 10) - parseInt(playerValue.taruhan, 10);
+
+        setPlayerBall(newPlayerBall);
+        console.log('pemenang', pemenang)
+        setPemenang(null)
+      }
     }
 
 
+  }, [playerBall, playerValue.taruhan, playerValue.tebakan, taruhanCpu, tebakanCpu]);
 
+  console.log('taruhancpu', taruhanCpu);
 
+  console.log('tebakancpu', tebakanCpu);
+  console.log('tebakanplayer', tebakan);
 
-    console.log('taruhancpu', taruhanCpu);
+  console.log('taruhanP', taruhan, 'taruhancpu', taruhanCpu, 'benar', parseInt(taruhan, 10) + parseInt(taruhanCpu, 10));
 
-    console.log('tebakancpu', tebakanCpu);
-    console.log('tebakanplayer', tebakan);
-
-    console.log('taruhanP', taruhan, 'taruhancpu', taruhanCpu, 'benar', parseInt(taruhan, 10) + parseInt(taruhanCpu, 10));
-  }, [maxTebakanCpu, minTaruhan, taruhanCpu, taruhan, tebakan, pemenang, tebakanCpu, playerValue.tebakan, playerValue.taruhan, cpuBall, playerBall]);
-
-  console.log('render, profile fields: ', playerValue);
-
-  useEffect(() => {
-    if (pemenang && pemenang === 'cpu') {
-      const newPlayerBall = parseInt(playerBall, 10) - parseInt(playerValue.taruhan, 10);
-      setPlayerBall(newPlayerBall);
-      // console.log('pemenang', pemenang);
-    }
-    if (pemenang && pemenang === 'player') {
-      const newPlayerBall = parseInt(playerBall, 10) + parseInt(taruhanCpu, 10);
-      setPlayerBall(newPlayerBall);
-      // console.log('pemenang', pemenang);
-    }
-  }, [pemenang])
-
+  // useEffect(() => {
+  //   if (pemenang && pemenang === 'cpu') {
+  //     const newPlayerBall = parseInt(playerBall, 10) - parseInt(playerValue.taruhan, 10);
+  //     setPlayerBall(newPlayerBall);
+  //     console.log('testc');
+  //     // console.log('pemenang', pemenang);
+  //   }
+  //   if (pemenang && pemenang === 'player') {
+  //     const newPlayerBall = parseInt(playerBall, 10) + parseInt(taruhanCpu, 10);
+  //     setPlayerBall(newPlayerBall);
+  //     // console.log('pemenang', pemenang);
+  //     console.log('testp');
+  //   }
+  // }, [pemenang])
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -960,7 +968,7 @@ export default function Hero() {
                   <div className="">Tebakan</div>
                   <div>
                     {' '}
-                    <input label="tebakan" className="h-28 w-24 text-6xl text-center" type="number" onChange={handleChange} name="tebakan" value={parseInt(tebakan)} />
+                    <input label="tebakan" className="h-28 w-24 text-6xl text-center" type="number" onChange={handleChange} name="tebakan" value={parseInt(tebakan, 10)} />
                   </div>
                 </div>
               </div>
