@@ -870,43 +870,42 @@ export default function Hero() {
 
     const newTebakanCpu = parseInt(Math.random() * (maxTebakanCpu - minTaruhan), 10) + minTaruhan + newTaruhanCpu;
     setTebakanCpu(newTebakanCpu);
-    if (maxTebakanCpu < minTaruhan) {
-      alert('Max value should be higher than Min value');
-      setTaruhanCpu('Error');
+    // if (maxTebakanCpu < minTaruhan) {
+    //   alert('Max value should be higher than Min value');
+    //   setTaruhanCpu('Error');
+    // }
+
+    if (parseInt(playerValue.tebakan, 10) === parseInt(playerValue.taruhan, 10) + parseInt(taruhanCpu, 10)) {
+      setPemenang('player');
     }
 
-    if (maxTebakanCpu < minTaruhan) {
-      alert('Max value should be higher than Min value');
-      setTaruhanCpu('Error');
+    if (parseInt(tebakanCpu, 10) === parseInt(playerValue.taruhan, 10) + parseInt(taruhanCpu, 10)) {
+      setPemenang('cpu');
     }
-  }, [maxTaruhanCpu, maxTebakanCpu]);
+  }, [maxTaruhanCpu, maxTebakanCpu, playerValue.taruhan, playerValue.tebakan, taruhanCpu, tebakanCpu]);
 
   // console.log(taruhanCpu, tebakanCpu)
 
   useEffect(() => {
-    if (parseInt(playerValue.tebakan, 10) === parseInt(playerValue.taruhan, 10) - parseInt(taruhanCpu, 10)) {
-      setPemenang('player')
+    setTimeout(() => {
+
+
       if (pemenang && pemenang === 'player') {
         const newPlayerBall = parseInt(playerBall, 10) + parseInt(taruhanCpu, 10);
         setPlayerBall(newPlayerBall);
-        console.log('pemenang', pemenang)
-        setPemenang(null)
+        console.log('pemenang', pemenang);
+        setPemenang(null);
       }
-    }
 
-    if (parseInt(tebakanCpu, 10) === parseInt(playerValue.taruhan, 10) + parseInt(taruhanCpu, 10)) {
-      setPemenang('cpu')
       if (pemenang && pemenang === 'cpu') {
         const newPlayerBall = parseInt(playerBall, 10) - parseInt(playerValue.taruhan, 10);
 
         setPlayerBall(newPlayerBall);
-        console.log('pemenang', pemenang)
-        setPemenang(null)
+        console.log('pemenang', pemenang);
+        setPemenang(null);
       }
-    }
-
-
-  }, [playerBall, playerValue.taruhan, playerValue.tebakan, taruhanCpu, tebakanCpu]);
+    }, 1000);
+  }, [pemenang, playerBall, playerValue.taruhan, taruhanCpu]);
 
   console.log('taruhancpu', taruhanCpu);
 
