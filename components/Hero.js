@@ -874,8 +874,6 @@ export default function Hero() {
     //   alert('Max value should be higher than Min value');
     //   setTaruhanCpu('Error');
     // }
-
-
   }, [maxTaruhanCpu, maxTebakanCpu]);
 
   useEffect(() => {
@@ -886,11 +884,9 @@ export default function Hero() {
     if (parseInt(playerValue.taruhan, 10) !== 0 && parseInt(tebakanCpu, 10) === parseInt(playerValue.taruhan, 10) + parseInt(taruhanCpu, 10)) {
       setPemenang('cpu');
     }
-  }, [playerValue.taruhan, playerValue.tebakan, taruhanCpu, tebakanCpu])
+  }, [playerValue.taruhan, playerValue.tebakan, taruhanCpu, tebakanCpu]);
 
-
-  const getPemenang = useCallback(() => {
-    gerarNumero();
+  useEffect(() => {
     if (pemenang && pemenang === 'player') {
       const newPlayerBall = parseInt(playerBall, 10) + parseInt(taruhanCpu, 10);
       setPlayerBall(newPlayerBall);
@@ -905,7 +901,25 @@ export default function Hero() {
       console.log('pemenang', pemenang);
       setPemenang(null);
     }
-  }, [gerarNumero, pemenang, playerBall, playerValue.taruhan, taruhanCpu]);
+  }, [pemenang, playerBall, playerValue.taruhan, taruhanCpu]);
+
+  // const getPemenang = useCallback(() => {
+  //   gerarNumero();
+  //   if (pemenang && pemenang === 'player') {
+  //     const newPlayerBall = parseInt(playerBall, 10) + parseInt(taruhanCpu, 10);
+  //     setPlayerBall(newPlayerBall);
+  //     console.log('pemenang', pemenang);
+  //     setPemenang(null);
+  //   }
+
+  //   if (pemenang && pemenang === 'cpu') {
+  //     const newPlayerBall = parseInt(playerBall, 10) - parseInt(playerValue.taruhan, 10);
+
+  //     setPlayerBall(newPlayerBall);
+  //     console.log('pemenang', pemenang);
+  //     setPemenang(null);
+  //   }
+  // }, [gerarNumero, pemenang, playerBall, playerValue.taruhan, taruhanCpu]);
 
   console.log('pemenang', pemenang);
 
@@ -976,7 +990,7 @@ export default function Hero() {
             </div>
             <div className="">
               <div className="">
-                <div onClick={getPemenang} className="flex items-center justify-center">
+                <div onClick={gerarNumero} className="flex items-center justify-center">
                   Pusy Your Luck
                 </div>
               </div>
