@@ -847,6 +847,7 @@ export default function Hero() {
   </div>
 
   const [count, setCount] = useState(false);
+  const [gameOver, setGameOver] = useState(false);
   const [playerValue, setPlayerValue] = useState({ taruhan: 0, tebakan: 0 });
 
   const [playerBall, setPlayerBall] = useState(10);
@@ -955,6 +956,15 @@ export default function Hero() {
     });
   };
 
+  useEffect(() => {
+    if (parseInt(playerBall, 10) < 1 || parseInt(cpuBall, 10) < 1) {
+      setGameOver(true)
+    }
+
+  }, [])
+
+
+
   return (
     <div className=" flex h-[660px] max-w-[1366px] mx-auto">
       <div className=" w-full">
@@ -995,9 +1005,32 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-            <div className="">
-              <div className="">CPU</div>
+
+            {/* CPU Layout Using Reverse Styling */}
+            <div className="flex flex-col-reverse">
+              <div className="w-full border-2 border-blue-300 ">CPU</div>
+              <div className="flex items-center justify-center">
+                <div className="w-3/12">
+                  <div className="">Taruhan</div>
+                  <div className="h-28 w-24 text-6xl text-center">
+                    {' '}
+                    <p className="">{taruhanCpu}</p>
+                  </div>
+                </div>
+                <div className=" w-6/12 h-[100px] border-2 border-red-400">
+                  <div className="text-2xl text-center text-white">{cpuBall}</div>
+                </div>
+                <div className="w-3/12">
+                  {' '}
+                  <div className="">Tebakan</div>
+                  <div className="h-28 w-24 text-6xl text-center">
+                    {' '}
+                    <p className="">{tebakanCpu}</p>
+                  </div>
+                </div>
+              </div>
             </div>
+            {/* CPU Layout Using Reverse Styling */}
           </div>
 
           {/* <div onClick={handleVsCode} className="">tex</div> */}
