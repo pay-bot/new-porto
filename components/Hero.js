@@ -865,47 +865,49 @@ export default function Hero() {
   const minTaruhan = 1;
 
   const gerarNumero = useCallback(() => {
-    const newTaruhanCpu = parseInt(Math.random() * (maxTaruhanCpu - minTaruhan), 10) + minTaruhan;
+    const newTaruhanCpu = parseInt(Math.floor(Math.random() * (maxTaruhanCpu - minTaruhan), 10)) + minTaruhan;
     setTaruhanCpu(newTaruhanCpu);
 
-    const newTebakanCpu = parseInt(Math.random() * (maxTebakanCpu - minTaruhan), 10) + minTaruhan + newTaruhanCpu;
+    const newTebakanCpu = parseInt(Math.floor(Math.random() * (maxTebakanCpu - minTaruhan), 10)) + minTaruhan + newTaruhanCpu;
     setTebakanCpu(newTebakanCpu);
     // if (maxTebakanCpu < minTaruhan) {
     //   alert('Max value should be higher than Min value');
     //   setTaruhanCpu('Error');
     // }
 
-    if (parseInt(playerValue.tebakan, 10) === parseInt(playerValue.taruhan, 10) + parseInt(taruhanCpu, 10)) {
+
+  }, [maxTaruhanCpu, maxTebakanCpu]);
+
+  useEffect(() => {
+    if (parseInt(playerValue.taruhan, 10) !== 0 && parseInt(playerValue.tebakan, 10) === parseInt(playerValue.taruhan, 10) + parseInt(taruhanCpu, 10)) {
       setPemenang('player');
     }
 
-    if (parseInt(tebakanCpu, 10) === parseInt(playerValue.taruhan, 10) + parseInt(taruhanCpu, 10)) {
+    if (parseInt(playerValue.taruhan, 10) !== 0 && parseInt(tebakanCpu, 10) === parseInt(playerValue.taruhan, 10) + parseInt(taruhanCpu, 10)) {
       setPemenang('cpu');
     }
-  }, [maxTaruhanCpu, maxTebakanCpu, playerValue.taruhan, playerValue.tebakan, taruhanCpu, tebakanCpu]);
-
-  // console.log(taruhanCpu, tebakanCpu)
-
-  useEffect(() => {
-    setTimeout(() => {
+  }, [playerValue.taruhan, playerValue.tebakan, taruhanCpu, tebakanCpu])
 
 
-      if (pemenang && pemenang === 'player') {
-        const newPlayerBall = parseInt(playerBall, 10) + parseInt(taruhanCpu, 10);
-        setPlayerBall(newPlayerBall);
-        console.log('pemenang', pemenang);
-        setPemenang(null);
-      }
+  const getPemenang = useCallback(() => {
+    gerarNumero();
+    if (pemenang && pemenang === 'player') {
+      const newPlayerBall = parseInt(playerBall, 10) + parseInt(taruhanCpu, 10);
+      setPlayerBall(newPlayerBall);
+      console.log('pemenang', pemenang);
+      setPemenang(null);
+    }
 
-      if (pemenang && pemenang === 'cpu') {
-        const newPlayerBall = parseInt(playerBall, 10) - parseInt(playerValue.taruhan, 10);
+    if (pemenang && pemenang === 'cpu') {
+      const newPlayerBall = parseInt(playerBall, 10) - parseInt(playerValue.taruhan, 10);
 
-        setPlayerBall(newPlayerBall);
-        console.log('pemenang', pemenang);
-        setPemenang(null);
-      }
-    }, 1000);
-  }, [pemenang, playerBall, playerValue.taruhan, taruhanCpu]);
+      setPlayerBall(newPlayerBall);
+      console.log('pemenang', pemenang);
+      setPemenang(null);
+    }
+  }, [gerarNumero, pemenang, playerBall, playerValue.taruhan, taruhanCpu]);
+
+  console.log('pemenang', pemenang);
 
   console.log('taruhancpu', taruhanCpu);
 
@@ -974,7 +976,7 @@ export default function Hero() {
             </div>
             <div className="">
               <div className="">
-                <div onClick={gerarNumero} className="flex items-center justify-center">
+                <div onClick={getPemenang} className="flex items-center justify-center">
                   Pusy Your Luck
                 </div>
               </div>
