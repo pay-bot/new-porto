@@ -1,44 +1,40 @@
-# mazipan.space
+<div align="center">
+  <h1>theodorusclarence.com</h1>
+  <p>💠 Personal website and blog made using Next.js, TypeScript, Tailwind CSS, MDX Bundler, Prisma, and SWR.</p>
+</div>
 
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com) ![Website Up](https://img.shields.io/website-up-down-brightgreen-red/https/mazipan.space.svg)
+## Contributing & Project Setup
 
-👿 Codebase for personal blog ([mazipan.space](https://mazipan.space/)), built with Next.js and Tailwind CSS
+If you are interested in contributing or running this project on your local machine, please check the [contributing guide](CONTRIBUTING.md)
 
-## Live
+## Notable Features
 
-- [mazipan.space](https://mazipan.space/)
+This website was first initialized in January 2021, went through numerous changes and refactors, resulted to some notable features
 
-## Tech Stack
+### Dedicated Project Page
 
-- Next.js
-- Tailwind
+Each project is descriptively explained provided with my learnings.
 
-## Features
+![image](https://user-images.githubusercontent.com/55318172/132983591-63e495f1-fc5a-48d0-9e0a-ef3dddba6cad.png)
 
-- Dark mode
-- Simple pagination
-- Featured article
-- Article tags
-- Dual language support (ID and EN)
-- Generate RSS feed and sitemap.xml
-- Code highlighting, support line highlighting
-- Image optimization, mostly using [Next-Image](https://nextjs.org/docs/api-reference/next/image)
-- 3rd party comment system using Github Issue
-- Auto generating web perf report using [psi-gh-action](https://github.com/mazipan/psi-gh-action)
+### Blogs & Library
 
-## Blog comments
+I write to teach people how to rebuild and redefine fundamental concepts through mental models.
 
-https://github.com/mazipan/blog-comments/issues
+https://user-images.githubusercontent.com/55318172/132983558-55adf0a2-3ce5-43b2-8718-09fd1567e43f.mov
 
-## Previous version
+### Lazy Blur Loader
 
-If you are looking for Gatsby version, please visit branch `gatsby`.
+Images are hosted on Cloudinary
 
-## Use as a template
+https://user-images.githubusercontent.com/55318172/132983757-135138db-6907-4951-a98f-e2a75c16fa01.mov
 
-You can use this repo to bootstrap a same blog for yourself.
-Feel free, just click **"Use this template"** button in this repo.
+### Love Button Interaction
 
-----
+https://user-images.githubusercontent.com/55318172/132983796-9187857f-bbf2-4bb0-80ac-59cc1c4f3e87.mov
 
-Copyright © 2019 by Irfan Maulana
+### Spotify Now Playing
+
+Check out the [tutorial](https://theodorusclarence.com/blog/spotify-now-playing).
+
+![image](https://user-images.githubusercontent.com/55318172/132983710-000cc6c8-a466-4314-ad3f-656d9dc1a1e4.png)

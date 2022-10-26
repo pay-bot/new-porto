@@ -25,6 +25,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
+.env
 .env.local
 .env.development.local
 .env.test.local
@@ -32,7 +33,17 @@ yarn-error.log*
 
 # vercel
 .vercel
-public/sitemap.xml
-public/feed.xml
-public/feed.json
-public/rss.xml
+
+# next-sitemap
+robots.txt
+sitemap.xml
+
+# cypress
+cypress/videos
+cypress/screenshots
+
+# rss
+rss.xml
+
+# scripts
+scripts/out

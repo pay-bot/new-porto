@@ -1,48 +1,54 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { fontFamily } = require('tailwindcss/defaultTheme');
+
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  experimental: {
-    optimizeUniversalDefaults: true,
-  },
-  darkMode: 'media',
-  content: [
-    './styles/**/*.css',
-    './components/**/*.js',
-    './pages/**/*.js',
-    './lib/markdown-parser-markdownit.js',
-    './lib/utils/colors.js'
-  ],
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Work Sans"', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', '"Noto Sans"', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'],
-        serif: ['"Josefin Sans"', 'ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
-        heading: ['"Josefin Sans"'],
-        body: ['"Work Sans"']
-      },
-      spacing: {
-        28: '7rem'
-      },
-      maxWidth: {
-        760: '760px'
-      },
-      letterSpacing: {
-        tighter: '-.04em'
-      },
-      lineHeight: {
-        tight: 1.2
-      },
-      boxShadow: {
-        small: '0 5px 10px rgba(0, 0, 0, 0.12)',
-        medium: '0 8px 30px rgba(0, 0, 0, 0.12)'
+        primary: ['Inter', ...fontFamily.sans],
       },
       colors: {
-
-        purplevs: '#a173c2',
-        redvs: '#e46b76',
-        greenvs: '#98c177',
-        bluevs: '#61b4f8',
-        orangevs: '#d19a66',
-        whitevs: '#abb2bf',
-      }
-    }
-  }
-}
+        primary: {
+          // Customize it on globals.css :root
+          200: 'rgb(var(--tw-clr-primary-200) / <alpha-value>)',
+          300: 'rgb(var(--tw-clr-primary-300) / <alpha-value>)',
+          400: 'rgb(var(--tw-clr-primary-400) / <alpha-value>)',
+          500: 'rgb(var(--tw-clr-primary-500) / <alpha-value>)',
+        },
+        dark: '#222222',
+      },
+      keyframes: {
+        flicker: {
+          '0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100%': {
+            opacity: 0.99,
+            filter:
+              'drop-shadow(0 0 1px rgba(252, 211, 77)) drop-shadow(0 0 15px rgba(245, 158, 11)) drop-shadow(0 0 1px rgba(252, 211, 77))',
+          },
+          '20%, 21.999%, 63%, 63.999%, 65%, 69.999%': {
+            opacity: 0.4,
+            filter: 'none',
+          },
+        },
+        tilt: {
+          '0%, 50%, 100%': {
+            transform: 'rotate(0deg)',
+          },
+          '25%': {
+            transform: 'rotate(0.5deg)',
+          },
+          '75%': {
+            transform: 'rotate(-0.5deg)',
+          },
+        },
+      },
+      animation: {
+        flicker: 'flicker 3s linear infinite',
+        tilt: 'tilt 10s infinite linear',
+      },
+    },
+  },
+  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+};

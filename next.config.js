@@ -1,13 +1,41 @@
-module.exports = {
-  swcMinify: true,
-  webpack: (config) => {
-    config.resolve.fallback = { fs: false, path: false, stream: false, constants: false };
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
+const nextTranslate = require('next-translate')
 
-    return config;
-  },
-  experimental: {
-    images: {
-      allowFutureImage: true,
+/**
+ * @type {import('next').NextConfig}
+ */
+module.exports = nextTranslate(
+  withBundleAnalyzer({
+    eslint: {
+      dirs: ['src'],
     },
-  },
-}
+    images: {
+      domains: [
+        'res.cloudinary.com',
+
+        // Spotify Album
+        'i.scdn.co',
+      ],
+    },
+    webpack: (config, { dev, isServer }) => {
+      // Replace React with Preact only in client production build
+      if (!dev && !isServer) {
+        Object.assign(config.resolve.alias, {
+          react: 'preact/compat',
+          'react-dom/test-utils': 'preact/test-utils',
+          'react-dom': 'preact/compat',
+        });
+      }
+
+      return config;
+    },
+    typescript: {
+      // Dangerously allow production builds to successfully complete even if
+      // your project has type errors.
+      ignoreBuildErrors: true,
+    },
+  })
+)
+
