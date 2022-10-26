@@ -45,7 +45,7 @@ export default function IndexPage({
           )}
         >
           <article className='layout'>
-            <div className='flex justify-between'>
+            <div className='flex flex-col items-center justify-between md:flex-row'>
               <div className=''>
                 <h2 className='text-2xl md:text-4xl 2xl:text-5xl' data-fade='1'>
                   Hi!
@@ -142,8 +142,8 @@ export default function IndexPage({
                   </UnstyledLink>
                 </div>
               </div>
-              <div className='h-full w-full'>
-                <ul className='relative h-full'>
+              <div className='h-full w-full pt-20 md:pt-0'>
+                <ul className='relative h-full flex justify-center'>
                   <PlayCard
                     className={clsx(
                       'absolute max-w-[300px] transform-gpu',
@@ -155,7 +155,7 @@ export default function IndexPage({
                     post={populatedPosts[1]}
                   />
                   <PlayCard
-                    className='mx-auto max-w-[300px]'
+                    className='lg:!ml-auto  lg:mr-0 mr-auto ml-auto max-w-[300px]'
                     post={populatedPosts[0]}
                   />
                 </ul>
@@ -170,7 +170,7 @@ export default function IndexPage({
               'hover:text-primary-300 focus-visible:text-primary-300'
             )}
           >
-            <IoArrowDownOutline className='h-8 w-8 animate-bounce md:h-10 md:w-10' />
+            <IoArrowDownOutline className='hidden h-8 w-8 animate-bounce md:block md:h-10 md:w-10' />
           </UnstyledLink>
           <TC
             className={clsx(
@@ -181,57 +181,6 @@ export default function IndexPage({
             )}
           />
         </section>
-
-        <InView triggerOnce rootMargin='-40% 0px'>
-          {({ ref, inView }) => (
-            <section
-              ref={ref}
-              id='intro'
-              className={clsx('py-20', inView && 'fade-in-start')}
-            >
-              <article
-                className={clsx(
-                  'layout flex flex-col-reverse items-center md:flex-row md:justify-start',
-                  'md:gap-4'
-                )}
-                data-fade='0'
-              >
-                <div className='mt-8 h-full w-full md:mt-0'>
-                  <h2 className='text-4xl md:text-6xl'>
-                    <Accent className='inline decoration-clone leading-snug dark:leading-none'>
-                      Rebuild your mental model
-                    </Accent>
-                  </h2>
-                  <p className='mt-4 text-base text-gray-600 dark:text-gray-300 md:text-lg'>
-                    <Tooltip
-                      withUnderline
-                      content={
-                        <>
-                          A mental model is an explanation of someone's{' '}
-                          <strong>thought process</strong> about how something
-                          works. You can use it as your own guide that you can
-                          test through some cases.
-                        </>
-                      }
-                    >
-                      Mental model
-                    </Tooltip>{' '}
-                    will make front-end development more{' '}
-                    <strong className='text-gray-700 dark:text-gray-200'>
-                      predictable
-                    </strong>{' '}
-                    by seeing how they work{' '}
-                    <strong className='text-gray-700 dark:text-gray-200'>
-                      fundamentally
-                    </strong>
-                    . In my blog, I'm sharing how I approach something and how
-                    my mental model affect my learning about a certain topic.
-                  </p>
-                </div>
-              </article>
-            </section>
-          )}
-        </InView>
 
         <InView triggerOnce rootMargin='-40% 0px'>
           {({ ref, inView }) => (
