@@ -936,9 +936,7 @@ export default function VSCode({
                       exit='exit'
                       variants={countVsCode ? false : textVariantsMini}
                     >
-                      <Link href='/blog'>
-                        Read the blog
-                      </Link>
+                      <Link href='/blog'>Read the blog</Link>
                     </motion.div>
                   )}
                   {line20Class && (
@@ -968,7 +966,7 @@ export default function VSCode({
                     className='h-full w-full rounded-full  object-cover object-top'
                     src='/static/images/fahri.jpeg'
                     alt=''
-                    fill
+                    layout='fill'
                   />
                 </motion.div>
               )}
@@ -1043,11 +1041,7 @@ export default function VSCode({
                       exit='exit'
                       variants={countVsCode ? false : ln13TextVariants}
                     >
-                      <Link href='/blog'>
-                    
-                          Read the blog
-                       
-                      </Link>
+                      <Link href='/blog'>Read the blog</Link>
                     </motion.div>
                   )}
                   {line20Class && (
@@ -1058,11 +1052,7 @@ export default function VSCode({
                       exit='exit'
                       variants={countVsCode ? false : ln13TextVariants}
                     >
-                      <Link href='/about'>
-                      
-                          Learn about me
-                      
-                      </Link>
+                      <Link href='/about'>Learn about me</Link>
                     </motion.div>
                   )}
                 </div>
@@ -1079,7 +1069,7 @@ export default function VSCode({
                     className='h-full w-full rounded-full  object-cover object-top'
                     src='/static/images/fahri.jpeg'
                     alt=''
-                    fill
+                    layout='fill'
                   />
                 </motion.div>
               )}

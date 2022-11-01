@@ -11,6 +11,12 @@ module.exports = {
         primary: ['Inter', ...fontFamily.sans],
       },
       colors: {
+        purplevs: '#a173c2',
+        redvs: '#e46b76',
+        greenvs: '#98c177',
+        bluevs: '#61b4f8',
+        orangevs: '#d19a66',
+        whitevs: '#abb2bf',
         primary: {
           // Customize it on globals.css :root
           200: 'rgb(var(--tw-clr-primary-200) / <alpha-value>)',

@@ -11,11 +11,6 @@ module.exports = nextTranslate(
     eslint: {
       dirs: ['src'],
     },
-    experimental: {
-      images: {
-        allowFutureImage: true,
-      },
-    },
     images: {
       domains: [
         'res.cloudinary.com',

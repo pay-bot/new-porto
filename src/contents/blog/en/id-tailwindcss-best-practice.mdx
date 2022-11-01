@@ -207,8 +207,8 @@ export default function Nav() {
     <nav className='bg-gray-700'>
       <ul className='flex items-center justify-between px-8 py-4'>
         <li>
-          <Link href='/' className='font-bold text-green-400'>
-            Home
+          <Link href='/'>
+            <a className='font-bold text-green-400'>Home</a>
           </Link>
         </li>
         <ul className='flex items-center justify-between space-x-4'>
@@ -249,7 +249,7 @@ export default function Tag({
         className,
         'inline-block rounded-md px-1.5 py-0.5 font-medium transition-colors',
         'bg-gray-100 text-gray-700 hover:text-black disabled:bg-gray-200 disabled:text-gray-300',
-        'focus-visible:ring-primary-300 focus:outline-none focus-visible:ring disabled:cursor-not-allowed'
+        'focus:outline-none focus-visible:ring focus-visible:ring-primary-300 disabled:cursor-not-allowed'
       )}
       {...rest}
     >
@@ -276,20 +276,20 @@ Berikut contoh penggunaan clsx yang lebih complex
   className={clsx(
     className,
     'inline-flex rounded px-4 py-2 font-semibold',
-    'focus-visible:ring-primary-500 focus:outline-none focus-visible:ring',
+    'focus:outline-none focus-visible:ring focus-visible:ring-primary-500',
     'shadow-sm',
     'transition-colors duration-75',
     [
       variant === 'primary' && [
         'bg-primary-400 text-white',
-        'border-primary-500 border',
+        'border border-primary-500',
         'hover:bg-primary-500 hover:text-white',
         'active:bg-primary-600',
         'disabled:bg-primary-600 disabled:hover:bg-primary-600',
       ],
       variant === 'outline' && [
         'text-primary-500',
-        'border-primary-500 border',
+        'border border-primary-500',
         isDarkBg
           ? 'hover:bg-gray-900 active:bg-gray-800 disabled:bg-gray-800'
           : 'hover:bg-primary-50 active:bg-primary-100 disabled:bg-primary-100',
@@ -302,9 +302,9 @@ Berikut contoh penggunaan clsx yang lebih complex
           : 'hover:bg-primary-50 active:bg-primary-100 disabled:bg-primary-100',
       ],
       variant === 'light' && [
-        'text-dark bg-white ',
+        'bg-white text-dark ',
         'border border-gray-300',
-        'hover:text-dark hover:bg-gray-100',
+        'hover:bg-gray-100 hover:text-dark',
         'active:bg-white/80 disabled:bg-gray-200',
       ],
       variant === 'dark' && [
