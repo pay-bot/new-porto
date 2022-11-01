@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { InferGetStaticPropsType } from 'next';
 import * as React from 'react';
-import { IoArrowDownOutline } from 'react-icons/io5';
+import { IoArrowDownOutline, IoGameController } from 'react-icons/io5';
 import { IoNewspaperSharp } from 'react-icons/io5';
 import { SiGithub, SiTwitter } from 'react-icons/si';
 import { InView } from 'react-intersection-observer';
@@ -14,7 +14,6 @@ import useLoaded from '@/hooks/useLoaded';
 
 import Accent from '@/components/Accent';
 import BlogCard from '@/components/content/blog/BlogCard';
-import PlayCard from '@/components/content/card/PlayCard';
 import ProjectCard from '@/components/content/projects/ProjectCard';
 import Layout from '@/components/layout/Layout';
 import ButtonLink from '@/components/links/ButtonLink';
@@ -22,7 +21,6 @@ import CustomLink from '@/components/links/CustomLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
 import TC from '@/components/TC';
-import Tooltip from '@/components/Tooltip';
 
 export default function IndexPage({
   featuredPosts,
@@ -58,7 +56,7 @@ export default function IndexPage({
                 </h1>
                 <p
                   className={clsx(
-                    'mt-4 max-w-4xl text-gray-700 dark:text-gray-200 md:mt-6',
+                    'mt-4 max-w-xl text-gray-700 dark:text-gray-200 md:mt-6',
                     'md:text-lg 2xl:text-xl'
                   )}
                   data-fade='3'
@@ -67,13 +65,20 @@ export default function IndexPage({
                   rebuild and redefine,, fundamental concepts through mental
                   models.
                 </p>
-                <p
-                  className='mt-3 max-w-4xl leading-relaxed text-gray-700 dark:text-gray-200 md:mt-4 md:text-lg 2xl:text-xl'
+                <div
+                  className='mt-3 flex max-w-4xl items-center space-x-3 leading-relaxed text-gray-700 dark:text-gray-200 md:mt-4 md:text-lg 2xl:text-xl'
                   data-fade='4'
                 >
-                  Don't forget to sign my{' '}
-                  <CustomLink href='/guestbook'>guestbook</CustomLink>!
-                </p>
+                  <div className='flex space-x-3 items-center'>
+                    {' '}
+                    I have some of{' '}
+                    <span className=''>
+                      <IoGameController />
+                    </span>{' '}
+                    for you{' '}
+                  </div>
+                  <CustomLink href='/play'>Play with me?</CustomLink>
+                </div>
                 <div
                   data-fade='5'
                   className='mt-8 flex flex-wrap gap-4 md:!text-lg'
@@ -141,24 +146,6 @@ export default function IndexPage({
                     <span>theodorusclarence</span>
                   </UnstyledLink>
                 </div>
-              </div>
-              <div className='h-full w-full pt-20 md:pt-0'>
-                <ul className='relative h-full flex justify-center'>
-                  <PlayCard
-                    className={clsx(
-                      'absolute max-w-[300px] transform-gpu',
-                      'top-1/2 translate-y-[-55%] md:translate-y-[-50%] lg:translate-y-[-60%]',
-                      'left-1/2 -translate-x-1/2 md:translate-x-[-50%] lg:translate-x-[-30%]',
-                      'rotate-3 md:rotate-6 lg:rotate-12',
-                      'pointer-events-none md:pointer-events-auto'
-                    )}
-                    post={populatedPosts[1]}
-                  />
-                  <PlayCard
-                    className='lg:!ml-auto  lg:mr-0 mr-auto ml-auto max-w-[300px]'
-                    post={populatedPosts[0]}
-                  />
-                </ul>
               </div>
             </div>
           </article>

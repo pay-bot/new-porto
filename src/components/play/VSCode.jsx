@@ -526,7 +526,7 @@ export default function VSCode({
                 <div className='text-bluevs'>Home</div>
                 <div className='text-orangevs'>{`( ) {`}</div>
               </div>
-              <div className='text-purplevs pl-4'>{`return (`}</div>
+              <div className='pl-4 text-purplevs'>{`return (`}</div>
               <div className='code whitespace-nowrap'>
                 <div className='pl-7'>
                   {renderOpenDiv(
@@ -722,7 +722,7 @@ export default function VSCode({
             <div className='flex bg-[#282c34]'>
               <div className='px-[2px]'>
                 {Array.from({ length: 40 }, (_, x) => (
-                  <div key={x} className='codef text-whitevs text-[1px]'>
+                  <div key={x} className='codef text-[1px] text-whitevs'>
                     {x > 0 && x}
                   </div>
                 ))}
@@ -732,14 +732,14 @@ export default function VSCode({
                 {renderImport('Link', 'next/link', 'mini')}
                 {renderImport('Image', 'next/future/image', 'mini')}
                 <div className='flex items-center space-x-[2px]'>
-                  <div className=' text-purplevs  text-[2px] '>
+                  <div className=' text-[2px]  text-purplevs '>
                     export default function
                   </div>
 
-                  <div className='text-bluevs  text-[2px]'>Home</div>
-                  <div className='text-orangevs  text-[2px]'>{`( ) {`}</div>
+                  <div className='text-[2px]  text-bluevs'>Home</div>
+                  <div className='text-[2px]  text-orangevs'>{`( ) {`}</div>
                 </div>
-                <div className='text-purplevs pl-[1px]  text-[2px]'>{`return (`}</div>
+                <div className='pl-[1px] text-[2px]  text-purplevs'>{`return (`}</div>
                 <div className='code-mini text-[2px] text-white '>
                   <div className='pl-[2px]'>
                     {renderOpenDiv(
