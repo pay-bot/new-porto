@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { InferGetStaticPropsType } from 'next';
 import * as React from 'react';
-import { IoArrowDownOutline, IoGameController } from 'react-icons/io5';
+import { IoArrowDownOutline } from 'react-icons/io5';
 import { IoNewspaperSharp } from 'react-icons/io5';
 import { SiGithub, SiTwitter } from 'react-icons/si';
 import { InView } from 'react-intersection-observer';
@@ -17,10 +17,9 @@ import BlogCard from '@/components/content/blog/BlogCard';
 import ProjectCard from '@/components/content/projects/ProjectCard';
 import Layout from '@/components/layout/Layout';
 import ButtonLink from '@/components/links/ButtonLink';
-import CustomLink from '@/components/links/CustomLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
+import MarbleGuest from '@/components/play/MarbleGuest';
 import Seo from '@/components/Seo';
-import TC from '@/components/TC';
 
 export default function IndexPage({
   featuredPosts,
@@ -43,7 +42,7 @@ export default function IndexPage({
           )}
         >
           <article className='layout'>
-            <div className='flex flex-col items-center justify-between md:flex-row'>
+            <div className='grid grid-cols-2 items-center'>
               <div className=''>
                 <h2 className='text-2xl md:text-4xl 2xl:text-5xl' data-fade='1'>
                   Hi!
@@ -65,20 +64,7 @@ export default function IndexPage({
                   rebuild and redefine,, fundamental concepts through mental
                   models.
                 </p>
-                <div
-                  className='mt-3 flex max-w-4xl items-center space-x-3 leading-relaxed text-gray-700 dark:text-gray-200 md:mt-4 md:text-lg 2xl:text-xl'
-                  data-fade='4'
-                >
-                  <div className='flex space-x-3 items-center'>
-                    {' '}
-                    I have some of{' '}
-                    <span className=''>
-                      <IoGameController />
-                    </span>{' '}
-                    for you{' '}
-                  </div>
-                  <CustomLink href='/play'>Play with me?</CustomLink>
-                </div>
+
                 <div
                   data-fade='5'
                   className='mt-8 flex flex-wrap gap-4 md:!text-lg'
@@ -147,6 +133,9 @@ export default function IndexPage({
                   </UnstyledLink>
                 </div>
               </div>
+              <div className='ml-auto overflow-hidden'>
+                <MarbleGuest gameOn={true} />
+              </div>
             </div>
           </article>
           <UnstyledLink
@@ -159,14 +148,6 @@ export default function IndexPage({
           >
             <IoArrowDownOutline className='hidden h-8 w-8 animate-bounce md:block md:h-10 md:w-10' />
           </UnstyledLink>
-          <TC
-            className={clsx(
-              'absolute bottom-0 right-6',
-              'translate-y-[37%] transform-gpu',
-              'w-[calc(100%-3rem)] md:w-[600px] 2xl:w-[900px]',
-              'z-[-1] opacity-70 dark:opacity-30'
-            )}
-          />
         </section>
 
         <InView triggerOnce rootMargin='-40% 0px'>

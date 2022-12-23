@@ -370,7 +370,7 @@ export default function MarbleGuest({ gameOn, setGameOn }) {
   return (
     <>
       {confettiOn && <Confetti width={width} height={height} />}
-      <div className='relative inset-0 top-1/2 mx-auto flex h-[630px] w-[350px] -translate-y-1/2  transform flex-col  items-center justify-center'>
+      <div className='relative mx-auto flex h-[630px] w-[350px]   transform flex-col  items-center justify-center'>
         <img
           src='./static/images/frame.png'
           alt=''
