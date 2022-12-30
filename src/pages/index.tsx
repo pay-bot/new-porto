@@ -37,12 +37,12 @@ export default function IndexPage({
       <main>
         <section
           className={clsx(
-            'min-h-main -mt-20 mb-20 flex flex-col justify-center',
+            'min-h-main mt-20 mb-20 flex flex-col justify-center md:-mt-20',
             isLoaded && 'fade-in-start'
           )}
         >
           <article className='layout'>
-            <div className='grid grid-cols-2 items-center'>
+            <div className='grid grid-cols-1 items-center md:grid-cols-2'>
               <div className=''>
                 <h2 className='text-2xl md:text-4xl 2xl:text-5xl' data-fade='1'>
                   Hi!
@@ -133,8 +133,8 @@ export default function IndexPage({
                   </UnstyledLink>
                 </div>
               </div>
-              <div className='ml-auto overflow-hidden'>
-                <MarbleGuest gameOn={true} />
+              <div className='mx-auto md:mt-7 mt-20 overflow-hidden md:ml-auto'>
+                <MarbleGuest  />
               </div>
             </div>
           </article>

@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import * as React from 'react';
 
 import Accent from '@/components/Accent';
-import ThemeButton from '@/components/buttons/ThemeButton';
 import UnstyledLink from '@/components/links/UnstyledLink';
 
 type HeaderProps = {
@@ -34,7 +33,7 @@ export default function Header({ large = false }: HeaderProps) {
   return (
     <header
       className={clsx(
-        'sticky top-0 z-50 transition-shadow',
+        'sticky top-0 z-50 bg-transparent transition-shadow',
         !onTop && 'shadow-sm'
       )}
     >
@@ -57,7 +56,13 @@ export default function Header({ large = false }: HeaderProps) {
       {/* Gradient List */}
       <div className='h-2 bg-gradient-to-tr from-primary-200 via-primary-300 to-primary-400' />
 
-      <div className='bg-white transition-colors dark:bg-dark dark:text-white'>
+      <div
+        className={
+          !onTop
+            ? 'bg-white transition-colors dark:bg-dark dark:text-white'
+            : 'bg-white/0 transition-colors dark:bg-dark/0 dark:text-white'
+        }
+      >
         <nav
           className={clsx(
             'layout flex items-center justify-between py-4',
@@ -90,7 +95,7 @@ export default function Header({ large = false }: HeaderProps) {
               </li>
             ))}
           </ul>
-          <ThemeButton />
+          {/* <ThemeButton /> */}
         </nav>
       </div>
     </header>

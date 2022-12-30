@@ -10,17 +10,18 @@ import { Bounce } from 'react-reveal';
 import { Tooltip as TooltipTippy } from 'react-tippy';
 import useWindowSize from 'react-use/lib/useWindowSize';
 
-export default function MarbleGuest({ gameOn, setGameOn }) {
+export default function MarbleGuest() {
   const { t } = useTranslation('common');
+  const [gameOn, setGameOn] = useState(false);
   const { width, height } = useWindowSize();
   const [startNewGame, setStartNewGame] = useState(false);
   const [continueGame, setContinueGame] = useState(false);
   const [startScreen, setStartScreen] = useState(false);
-  useEffect(() => {
-    setTimeout(() => {
-      setStartScreen(true);
-    }, 2000);
-  }, [gameOn]);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setStartScreen(true);
+  //   }, 2000);
+  // }, [gameOn]);
 
   const [onButtonClick, setOnButtonClick] = useState(false);
   const [playerValue, setPlayerValue] = useState({ taruhan: 0, tebakan: 0 });
@@ -245,7 +246,7 @@ export default function MarbleGuest({ gameOn, setGameOn }) {
           interactive
           html={
             taruhan.toString() === '0' && tebakan.toString() === '0' ? (
-              <div className='z-[30000] inline-block rounded-md border bg-white p-2 text-gray-600 shadow-md dark:border-gray-600 dark:bg-dark dark:text-gray-200'>
+              <div className='z-[30000] inline-block rounded-md border  p-2 text-gray-600 shadow-md dark:border-gray-600 dark:bg-dark dark:text-gray-200'>
                 Please Fill Taruhan And Tebakan
               </div>
             ) : (
@@ -376,8 +377,25 @@ export default function MarbleGuest({ gameOn, setGameOn }) {
           alt=''
           className='svg-bg absolute h-full w-full'
         />
-        {!startScreen && !startNewGame && (
-          <div className='flex h-[500px] w-full flex-col items-center justify-center space-y-5 bg-white'>
+
+        {!gameOn && !startScreen && !startNewGame && (
+          <div className='flex h-[500px] w-full flex-col items-center justify-center space-y-5 '>
+            <img
+              src='./static/images/marbleplus.png'
+              alt=''
+              className='h-24 w-24 animate-[spin_5s_ease-in-out_infinite] hover:animate-[spin_1s_ease-in-out_infinite]'
+            />
+            <div className='flex items-center  space-x-1'>
+              <div className='text-center text-xl font-bold text-white '>
+                Play With Me
+              </div>
+            </div>
+            {/* <img src='./static/images/marblemin.png' alt='' className='h-24 w-24' /> */}
+          </div>
+        )}
+
+        {gameOn && !startScreen && !startNewGame && (
+          <div className='flex h-[500px] w-full flex-col items-center justify-center space-y-5 '>
             <img
               src='./static/images/marbleplus.png'
               alt=''
@@ -394,7 +412,7 @@ export default function MarbleGuest({ gameOn, setGameOn }) {
             {/* <img src='./static/images/marblemin.png' alt='' className='h-24 w-24' /> */}
           </div>
         )}
-        {startScreen && !startNewGame && !continueGame && (
+        {startScreen && !startNewGame && !continueGame && gameOn && (
           <div className=' z-[10000] flex h-screen w-[340px] flex-col items-center justify-center space-y-4 md:h-[600px]'>
             <button
               type='button'
@@ -429,7 +447,7 @@ export default function MarbleGuest({ gameOn, setGameOn }) {
         <Bounce when={stateModal}>
           {stateModal && (
             <div className='absolute inset-0 z-[10001] -mt-10 flex items-center justify-center'>
-              <div className='flex h-48 w-72 flex-col items-center justify-center space-y-3 rounded bg-white p-4 shadow-xl'>
+              <div className='flex h-48 w-72 flex-col items-center justify-center space-y-3 rounded  p-4 shadow-xl'>
                 {stateGameOver ? (
                   <div className='text-red font-bold uppercase'>
                     {t('game.gameOver')}
@@ -461,7 +479,7 @@ export default function MarbleGuest({ gameOn, setGameOn }) {
         <Bounce when={howOn}>
           {howOn && (
             <div className='absolute inset-0 z-[10001] -mt-10 flex items-center justify-center'>
-              <div className='flex h-[70%] w-72 flex-col items-center justify-center space-y-3 rounded bg-white p-4 shadow-xl'>
+              <div className='flex h-[70%] w-72 flex-col items-center justify-center space-y-3 rounded  p-4 shadow-xl'>
                 <div className='text-xl font-bold text-black'>Tebak Gundu</div>
                 <div className='text-black '>{t('game.howDesc')}</div>
                 <button
@@ -477,7 +495,7 @@ export default function MarbleGuest({ gameOn, setGameOn }) {
         {/* <Bounce when={stateGameOver}>
           {stateGameOver && (
             <div className='absolute inset-0 flex items-center justify-center -mt-10 z-[10002]'>
-              <div className='flex flex-col items-center justify-center h-40 w-72 bg-white rounded space-y-3 p-4 shadow-xl'>
+              <div className='flex flex-col items-center justify-center h-40 w-72  rounded space-y-3 p-4 shadow-xl'>
                 <div className='text-transparent font-bold text-2xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 fontsemibold text-lg'>
                   {modalPemenang}
                 </div>
