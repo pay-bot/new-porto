@@ -1,13 +1,20 @@
 import clsx from 'clsx';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import * as React from 'react';
 
 import Accent from '@/components/Accent';
 import UnstyledLink from '@/components/links/UnstyledLink';
+
 import ThemeButton from '../buttons/ThemeButton';
 
 type HeaderProps = {
   large?: boolean;
+};
+
+const languageNames = {
+  id: 'ID 🇮🇩',
+  en: 'EN 🇬🇧',
 };
 
 export default function Header({ large = false }: HeaderProps) {
@@ -30,6 +37,8 @@ export default function Header({ large = false }: HeaderProps) {
     };
   }, []);
   //#endregion  //*======== Scroll Shadow ===========
+
+  const { asPath, locale: activeLocale, locales } = useRouter();
 
   return (
     <header
@@ -96,7 +105,29 @@ export default function Header({ large = false }: HeaderProps) {
               </li>
             ))}
           </ul>
-          <ThemeButton />
+          <div className='flex items-center space-x-4'>
+            <ul className='flex  gap-x-2'>
+              {locales.map((locale) => (
+                <li key={locale}>
+                  <Link href={asPath} locale={locale}>
+                    <a
+                      className='text-black dark:text-white'
+                      hrefLang={locale}
+                      aria-current={locale === activeLocale ? 'page' : null}
+                      onClick={() => {
+                        if (cookie.NEXT_LOCALE !== locale) {
+                          setCookie('NEXT_LOCALE', locale, { path: '/' });
+                        }
+                      }}
+                    >
+                      {languageNames[locale]}
+                    </a>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <ThemeButton />
+          </div>
         </nav>
       </div>
     </header>

@@ -68,6 +68,13 @@ export default function MarbleGuest() {
     setCpuBall(parseInt(localStorage.getItem('cpuBall'), 10));
   };
 
+  const handleGameOn = () => {
+    setGameOn(true);
+    setTimeout(() => {
+      setStartScreen(true);
+    }, 2000);
+  };
+
   const handleGameContinue = () => {
     setContinueGame(true);
   };
@@ -186,7 +193,7 @@ export default function MarbleGuest() {
     onButtonClick;
 
   const MarbleGuest = (
-    <div className='svfg-bg z-[10000] flex h-[calc(100vh-4rem)] w-[340px] flex-col items-center justify-between overflow-hidden bg-transparent  py-10 px-3 2xl:h-[600px] h-[90vh] md:p-8'>
+    <div className='svfg-bg z-[10000] flex h-[calc(100vh-4rem)] h-[90vh] min-h-[600px] w-[340px] flex-col items-center justify-between  overflow-hidden bg-transparent px-3 py-16 md:px-8 2xl:h-[650px]'>
       <div className='w-full '>
         {/* <div className='w-full border-2 border-blue-300 mb-2'>CPU</div> */}
         <div className='flex items-center justify-center space-x-3 '>
@@ -195,7 +202,7 @@ export default function MarbleGuest() {
             {/* <p className=''>{taruhanCpu}</p> */}
             <input
               label='tebakan'
-              className='md: h-16 w-12 rounded-lg bg-gradient-to-br from-rose-600 via-red-500 to-blue-600 !p-[2px] text-center  text-3xl text-white outline-none [appearance:textfield] md:h-20 md:w-16 md:text-5xl'
+              className='md: h-16 w-12 rounded-lg bg-gradient-to-br from-rose-600 via-red-500 to-blue-600 !p-[2px] text-center  text-3xl text-white outline-none [appearance:textfield] md:h-20 md:w-16 md:text-4xl'
               type='number'
               disabled
               // onChange={handleChange}
@@ -205,7 +212,7 @@ export default function MarbleGuest() {
           </div>
           <div className='spaxe-x-2 flex h-[100px]  w-4/12 flex-col items-center justify-center md:w-5/12'>
             {' '}
-            <div className=' bg-gradient-to-b from-red-700 via-indigo-600 to-red-900 bg-clip-text px-2 text-center text-3xl font-bold text-transparent'>
+            <div className=' bg-gradient-to-b from-red-700 via-indigo-600 to-red-900 bg-clip-text px-2 text-center text-2xl font-bold text-transparent'>
               CPU
             </div>
             <div className='  spaxe-x-2 flex items-center justify-center'>
@@ -214,7 +221,7 @@ export default function MarbleGuest() {
                 alt=''
                 className='h-10 w-10'
               />
-              <div className='text-center text-3xl text-white md:text-5xl'>
+              <div className='text-center text-2xl text-white md:text-4xl'>
                 X{parseInt(cpuBall, 10)}
               </div>
             </div>
@@ -227,7 +234,7 @@ export default function MarbleGuest() {
             <div className=''>
               <input
                 label='tebakan'
-                className='md: h-16 w-12 rounded-lg bg-gradient-to-br from-rose-600 via-red-500 to-blue-600 !p-[2px] text-center text-3xl text-white outline-none [appearance:textfield]  md:h-20 md:w-16 md:text-5xl '
+                className='md: h-16 w-12 rounded-lg bg-gradient-to-br from-rose-600 via-red-500 to-blue-600 !p-[2px] text-center text-2xl text-white outline-none [appearance:textfield]  md:h-20 md:w-16 md:text-4xl '
                 type='number'
                 disabled
                 // onChange={handleChange}
@@ -306,7 +313,7 @@ export default function MarbleGuest() {
               <input
                 label='taruhan'
                 className={[
-                  'md: h-16 w-12 rounded-lg !p-[2px] text-center text-3xl text-white outline-none [appearance:textfield]  md:h-20 md:w-16 md:text-5xl ',
+                  'md: h-16 w-12 rounded-lg !p-[2px] text-center text-2xl text-white outline-none [appearance:textfield]  md:h-20 md:w-16 md:text-4xl ',
                   parseInt(taruhan, 10) > parseInt(playerBall, 10)
                     ? 'bg-red-600'
                     : 'bg-gradient-to-tl from-lime-200 via-lime-300 to-teal-500 ',
@@ -325,11 +332,11 @@ export default function MarbleGuest() {
                 alt=''
                 className='h-10 w-10'
               />
-              <div className='text-center text-3xl text-white md:text-5xl'>
+              <div className='text-center text-2xl text-white md:text-4xl'>
                 X{parseInt(playerBall, 10)}
               </div>
             </div>
-            <div className=' bg-gradient-to-b from-green-700 via-lime-500 to-green-900 bg-clip-text px-2 text-center text-3xl font-bold text-transparent'>
+            <div className=' bg-gradient-to-b from-green-700 via-lime-500 to-green-900 bg-clip-text px-2 text-center text-2xl font-bold text-transparent'>
               Player
             </div>
           </div>
@@ -343,7 +350,7 @@ export default function MarbleGuest() {
               <input
                 label='tebakan'
                 className={[
-                  'md: h-16 w-12 rounded-lg !p-[2px] text-center text-3xl text-white outline-none [appearance:textfield]  md:h-20 md:w-16 md:text-5xl ',
+                  'md: h-16 w-12 rounded-lg !p-[2px] text-center text-2xl text-white outline-none [appearance:textfield]  md:h-20 md:w-16 md:text-4xl ',
                   parseInt(tebakan, 10) > 20
                     ? 'bg-yellow-300'
                     : 'bg-gradient-to-tl from-lime-200 via-lime-300 to-teal-500 ',
@@ -371,7 +378,7 @@ export default function MarbleGuest() {
   return (
     <>
       {confettiOn && <Confetti width={width} height={height} />}
-      <div className='relative mx-auto flex transform flex-col   items-center justify-center  2xl:h-[630px] 2xl:w-[350px] h-[75vh] w-[300px] max-h-[600px]'>
+      <div className='relative mx-auto flex h-[75vh] max-h-[650px]   min-h-[500px] transform  flex-col items-center justify-center xl:h-[650px] xl:w-[350px] 2xl:h-[650px] 2xl:w-[350px] min-w-[300px]'>
         <img
           src='./static/images/frame.png'
           alt=''
@@ -379,18 +386,24 @@ export default function MarbleGuest() {
         />
 
         {!gameOn && !startScreen && !startNewGame && (
-          <div className='flex h-[500px] w-full flex-col items-center justify-center space-y-5 '>
+          <div className='z-[10000] flex h-[500px] w-full flex-col items-center justify-center space-y-5'>
             <img
               src='./static/images/marbleplus.png'
               alt=''
-              className='h-24 w-24 animate-[spin_5s_ease-in-out_infinite] hover:animate-[spin_1s_ease-in-out_infinite]'
+              className='h-24 w-24  hover:animate-[spin_1s_ease-in-out_infinite]'
             />
             <div className='flex items-center  space-x-1'>
               <div className='text-center text-xl font-bold text-white '>
-                Play With Me
+                Play With Me ?
               </div>
             </div>
-            {/* <img src='./static/images/marblemin.png' alt='' className='h-24 w-24' /> */}
+            <button
+              type='button'
+              onClick={handleGameOn}
+              className='bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-2xl font-bold text-transparent'
+            >
+              Yes
+            </button>
           </div>
         )}
 
