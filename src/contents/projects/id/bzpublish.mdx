@@ -1,0 +1,79 @@
+---
+title: BZ Publish Headeless CMS
+description: 'A website to facilitate Baezeni clients for manage content.'
+category: 'Team of 4, as the Frontend Lead'
+publishedAt: '2021-11-04'
+techs: 'react,tailwindcss'
+date: '2022-08-17T00:00:00Z'
+modifiedTime: '2022-08-19T12:52:00Z'
+link: 'https://ppdbsumsel.net'
+image: 'bzpublish/SiteStructure.png'
+---
+
+> ## Penjelasan Singkat
+
+This project was developed to facilitate Bazeni client.
+
+> ## Project Goals
+
+In This project i am assigned for craete Content Management System Module, with this module made all client can have managed All content by Admin BZ Publish. i am working to cumunicate Admin BZ Publish with Api BZ Publish.
+
+<blockquote className='with-icons'>
+  ## Tech Stack Used
+  <div className='not-prose mt-2'></div>
+</blockquote>
+
+This project was developed using Create React App in Front End for a snappier website and delivering a quick and easy-to-use interface. and Python Django in Back End.
+
+For the Styling we use numerous framework such as:
+
+- **Tailwind CSS** for create unique styling and ezier layouting
+- **MUI** for UI Component
+
+For the library we use numerous libraries such as:
+
+- **React Query** for data management
+- **Redux Toolkit** for State management
+- **Google Map React** for generate location
+- **React Hook Form** for form management and form validation
+- **React CKEditor 5** for Text editor
+- **React Beaautiful DND** for drag-and-drop section and content
+- **React Dropzone** for drag-and-drop file upload
+- **React Sweetalert 2** for confirmation alert
+- **React Toastify** for giving toast about success and error
+- **etc..**
+
+> ## How BZ PUblish Work ?
+
+### Client Templating
+
+for the first step, each client have one website template, this template for collect client data and information, also automation will create stroge in azure store base on each clients template.
+in this part the admin baezeni also setup module subscription and site domain
+
+### Site Structure Setup
+
+Site structure containing client sitemap, the forntend will create all page base on sitemap, in BZ Publish, client can create unlimited page
+
+### Section Templating
+
+Section Templating . In this part frontend will make all section for each page base on design, frontend will use BZ Publish CMS Module for fill the containing
+and the consume the contain with api. client can pair unlimited section to page they want.
+The section containing data BZ Publish Have 5 widget Data for acomodir all client need.
+
+we could them widget
+
+- **Article** for save article collection
+- **Job Poster** for save Job Poster collection
+- **Media** for save media collection
+- **Text** for save Text collection
+- **Table** for generate Table and Chart data
+
+### Build website
+
+the last step . actually this simple step , for build website admin just select build type , there are two options Preview and Publish, usually preview build the first, after all good with no bug, and then next build the publish
+
+> ## The Problems and How I Deal With It
+
+This is my biggest project with a lot of new technologies for me.
+
+BZ Publish system was designed for can manage various clients needs. like multiple role access, multiple site, multiple language, and many more. but always be chalanging for me is handling multiple language, every CRUD Proses i should create form with function for handle this case. i learn a lot from this. every day during i working this project always fight with form validation, handling array, handling http request. very intresting fight for me .
