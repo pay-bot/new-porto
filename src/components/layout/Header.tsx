@@ -4,6 +4,7 @@ import * as React from 'react';
 
 import Accent from '@/components/Accent';
 import UnstyledLink from '@/components/links/UnstyledLink';
+import ThemeButton from '../buttons/ThemeButton';
 
 type HeaderProps = {
   large?: boolean;
@@ -95,7 +96,7 @@ export default function Header({ large = false }: HeaderProps) {
               </li>
             ))}
           </ul>
-          {/* <ThemeButton /> */}
+          <ThemeButton />
         </nav>
       </div>
     </header>

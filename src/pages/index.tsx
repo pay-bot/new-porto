@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import { InferGetStaticPropsType } from 'next';
 import * as React from 'react';
-import { IoArrowDownOutline } from 'react-icons/io5';
 import { IoNewspaperSharp } from 'react-icons/io5';
 import { SiGithub, SiTwitter } from 'react-icons/si';
 import { InView } from 'react-intersection-observer';
@@ -37,13 +36,13 @@ export default function IndexPage({
       <main>
         <section
           className={clsx(
-            'min-h-main mt-20 mb-20 flex flex-col justify-center md:-mt-20',
+            'mt-20 flex h-full min-h-[calc(100vh-100px)] flex-col justify-center lg:mt-0',
             isLoaded && 'fade-in-start'
           )}
         >
           <article className='layout'>
-            <div className='grid grid-cols-1 items-center md:grid-cols-2'>
-              <div className=''>
+            <div className='items-center lg:justify-between flex lg:flex-row flex-col gap-y-20 lg:grid-cols-2 lg:gap-y-0'>
+              <div className='lg:w-6/12 w-full'>
                 <h2 className='text-2xl md:text-4xl 2xl:text-5xl' data-fade='1'>
                   Hi!
                 </h2>
@@ -133,21 +132,11 @@ export default function IndexPage({
                   </UnstyledLink>
                 </div>
               </div>
-              <div className='mx-auto md:mt-7 mt-20 overflow-hidden md:ml-auto'>
-                <MarbleGuest  />
+              <div className=' overflow-hidden'>
+                <MarbleGuest />
               </div>
             </div>
           </article>
-          <UnstyledLink
-            href='#intro'
-            className={clsx(
-              'absolute bottom-2 left-1/2 -translate-x-1/2 md:bottom-10',
-              'cursor-pointer rounded-md transition-colors',
-              'hover:text-primary-300 focus-visible:text-primary-300'
-            )}
-          >
-            <IoArrowDownOutline className='hidden h-8 w-8 animate-bounce md:block md:h-10 md:w-10' />
-          </UnstyledLink>
         </section>
 
         <InView triggerOnce rootMargin='-40% 0px'>

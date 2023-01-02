@@ -186,7 +186,7 @@ export default function MarbleGuest() {
     onButtonClick;
 
   const MarbleGuest = (
-    <div className='svfg-bg z-[10000] flex h-[calc(100vh-4rem)] w-[340px] flex-col items-center justify-between overflow-hidden bg-transparent  py-10 px-3 md:h-[600px] md:p-8'>
+    <div className='svfg-bg z-[10000] flex h-[calc(100vh-4rem)] w-[340px] flex-col items-center justify-between overflow-hidden bg-transparent  py-10 px-3 2xl:h-[600px] h-[90vh] md:p-8'>
       <div className='w-full '>
         {/* <div className='w-full border-2 border-blue-300 mb-2'>CPU</div> */}
         <div className='flex items-center justify-center space-x-3 '>
@@ -371,7 +371,7 @@ export default function MarbleGuest() {
   return (
     <>
       {confettiOn && <Confetti width={width} height={height} />}
-      <div className='relative mx-auto flex h-[630px] w-[350px]   transform flex-col  items-center justify-center'>
+      <div className='relative mx-auto flex transform flex-col   items-center justify-center  2xl:h-[630px] 2xl:w-[350px] h-[75vh] w-[300px] max-h-[600px]'>
         <img
           src='./static/images/frame.png'
           alt=''
