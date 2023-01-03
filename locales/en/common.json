@@ -68,7 +68,6 @@
     "win": "Winner",
     "playAgain": "Play Again",
     "true": "True Answer",
-    "push": "Push Your Luck",
-    "howDesc": "Tebak gundus is a traditional game from Indonesia, usually played by 2 or more players. In this simple game, each player bets piece gundus, bets canot be empty, and then each player guessing and count all bet gunduss include they gundus. If guess true. The player whos guess with the true count, will get all gundus betting."
+    "push": "Guessing gundu is a traditional game from Indonesia, usually played by 2 or more people. Each player bets gundu according to their will, and then each player will guess the total of all the gundu that are bet, including their own betting gundu. The winner is determined from the correct guess. The winner will get all the gundu that are bet."
   }
 }

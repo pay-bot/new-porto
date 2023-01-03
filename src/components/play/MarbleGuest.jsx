@@ -7,7 +7,6 @@ import Confetti from 'react-confetti';
 import { AiFillWarning, AiOutlineDoubleLeft } from 'react-icons/ai';
 import { RiForbid2Fill } from 'react-icons/ri';
 import { Bounce } from 'react-reveal';
-import { Tooltip as TooltipTippy } from 'react-tippy';
 import useWindowSize from 'react-use/lib/useWindowSize';
 
 export default function MarbleGuest() {
@@ -210,7 +209,7 @@ export default function MarbleGuest() {
               value={parseInt(taruhanCpu, 10)}
             />
           </div>
-          <div className='spaxe-x-2 flex h-[100px]  w-4/12 flex-col items-center justify-center md:w-5/12'>
+          <div className='spaxe-x-2 flex   w-4/12 flex-col items-center justify-center md:w-5/12'>
             {' '}
             <div className=' bg-gradient-to-b from-red-700 via-indigo-600 to-red-900 bg-clip-text px-2 text-center text-2xl font-bold text-transparent'>
               CPU
@@ -246,32 +245,16 @@ export default function MarbleGuest() {
         </div>
       </div>
       <div className=''>
-        <TooltipTippy
-          trigger='mouseenter'
-          open={taruhan.toString() === '0' && tebakan.toString() === '0'}
-          hideOnClick={false}
-          interactive
-          html={
-            taruhan.toString() === '0' && tebakan.toString() === '0' ? (
-              <div className='z-[30000] inline-block rounded-md border  p-2 text-gray-600 shadow-md dark:border-gray-600 dark:bg-dark dark:text-gray-200'>
-                Please Fill Taruhan And Tebakan
-              </div>
-            ) : (
-              <div className=''></div>
-            )
-          }
+        <button
+          onClick={gerarNumero}
+          className={[
+            'button-fire text-sm font-bold',
+            disablePush ? 'cursor-not-allowed ' : 'cursor-pointer ',
+          ].join(' ')}
+          disabled={disablePush}
         >
-          <button
-            onClick={gerarNumero}
-            className={[
-              'button-fire text-sm font-bold',
-              disablePush ? 'cursor-not-allowed ' : 'cursor-pointer ',
-            ].join(' ')}
-            disabled={disablePush}
-          >
-            {t('game.push')}
-          </button>
-        </TooltipTippy>
+          {t('game.push')}
+        </button>
       </div>
 
       {parseInt(taruhan, 10) > parseInt(playerBall, 10) && (
@@ -301,9 +284,9 @@ export default function MarbleGuest() {
       )}
 
       {/* Player Layout Using Reverse Styling */}
-      <div className='flex w-full flex-col-reverse'>
+      <div className='flex w-full flex-col-reverse items-center justify-center'>
         {' '}
-        <div className='flex items-end justify-center space-x-3'>
+        <div className='flex     items-center justify-center space-x-3'>
           <div className='flex w-4/12 flex-col items-center justify-center md:w-3/12'>
             <div className='pb-2 text-lg font-bold  text-white'>
               {t('game.bet')}
@@ -325,7 +308,7 @@ export default function MarbleGuest() {
               />
             </div>
           </div>
-          <div className=' h-[100px] w-4/12 md:w-5/12 '>
+          <div className='  w-4/12 md:w-5/12 '>
             <div className=' spaxe-x-2 flex items-center justify-center'>
               <img
                 src='./static/images/marble2.png'
@@ -378,7 +361,7 @@ export default function MarbleGuest() {
   return (
     <>
       {confettiOn && <Confetti width={width} height={height} />}
-      <div className='relative mx-auto flex h-[75vh] max-h-[650px]   min-h-[500px] transform  flex-col items-center justify-center xl:h-[650px] xl:w-[350px] 2xl:h-[650px] 2xl:w-[350px] min-w-[300px]'>
+      <div className='relative mx-auto flex h-[75vh] max-h-[650px]   min-h-[500px] min-w-[300px]  transform flex-col items-center justify-center xl:h-[650px] xl:w-[350px] 2xl:h-[650px] 2xl:w-[350px]'>
         <img
           src='./static/images/frame.png'
           alt=''
@@ -415,9 +398,7 @@ export default function MarbleGuest() {
               className='h-24 w-24 animate-[spin_5s_ease-in-out_infinite] hover:animate-[spin_1s_ease-in-out_infinite]'
             />
             <div className='flex items-center  space-x-1'>
-              <div className='text-center text-xl font-bold text-white '>
-                Loading
-              </div>
+              <div className='text-center text-xl font-bold  '>Loading</div>
               <div className='dot1'></div>
               <div className='dot2'></div>
               <div className='dot3'></div>
@@ -459,21 +440,21 @@ export default function MarbleGuest() {
         {continueGame && MarbleGuest}
         <Bounce when={stateModal}>
           {stateModal && (
-            <div className='absolute inset-0 z-[10001] -mt-10 flex items-center justify-center'>
-              <div className='flex h-48 w-72 flex-col items-center justify-center space-y-3 rounded  p-4 shadow-xl'>
+            <div className='absolute inset-0 z-[100001] -mt-10 flex items-center justify-center '>
+              <div className='flex h-48 w-72  flex-col items-center justify-center space-y-3 rounded bg-white  p-4 shadow-xl'>
                 {stateGameOver ? (
                   <div className='text-red font-bold uppercase'>
                     {t('game.gameOver')}
                   </div>
                 ) : (
                   <>
-                    <div className='text-xs font-bold uppercase'>
+                    <div className='font semibold bg-gradient-to-r from-lime-400 via-green-500 to-teal-500  bg-clip-text  text-xs text-lg font-bold font-bold uppercase text-transparent'>
                       {t('game.win')}
                     </div>
                     <div className='fontsemibold bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-2xl text-lg font-bold text-transparent'>
                       {modalPemenang}
                     </div>
-                    <div className='fontsemibold bg-gradient-to-r  from-lime-400  via-green-500 to-teal-500 bg-clip-text text-lg font-bold text-transparent'>
+                    <div className='font semibold bg-gradient-to-r  from-lime-400  via-green-500 to-teal-500 bg-clip-text text-lg font-bold text-transparent'>
                       {t('game.true')}{' '}
                       {parseInt(taruhanCpu, 10) + parseInt(taruhan, 10)}
                     </div>
@@ -492,7 +473,7 @@ export default function MarbleGuest() {
         <Bounce when={howOn}>
           {howOn && (
             <div className='absolute inset-0 z-[10001] -mt-10 flex items-center justify-center'>
-              <div className='flex h-[70%] w-72 flex-col items-center justify-center space-y-3 rounded  p-4 shadow-xl'>
+              <div className='bg-white flex h-[70%] w-72 flex-col items-center justify-center space-y-3 rounded  p-4 shadow-xl'>
                 <div className='text-xl font-bold text-black'>Tebak Gundu</div>
                 <div className='text-black '>{t('game.howDesc')}</div>
                 <button

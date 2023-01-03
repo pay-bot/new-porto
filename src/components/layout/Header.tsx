@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import * as React from 'react';
+import { useCookies } from 'react-cookie';
 
 import Accent from '@/components/Accent';
 import UnstyledLink from '@/components/links/UnstyledLink';
@@ -37,7 +38,7 @@ export default function Header({ large = false }: HeaderProps) {
     };
   }, []);
   //#endregion  //*======== Scroll Shadow ===========
-
+  const [cookie, setCookie] = useCookies(['NEXT_LOCALE']);
   const { asPath, locale: activeLocale, locales } = useRouter();
 
   return (
