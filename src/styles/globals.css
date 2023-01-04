@@ -321,6 +321,20 @@ div.code-min {
   appearance: textfield;
 }
 
+select {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  background-image: none !important;
+  padding: 0px 3px !important;
+  background-size: 0px !important;
+}
+
+.\[appearance\:none\] {
+  -webkit-appearance: textfield;
+  appearance: none;
+}
+
 .dot1,
 .dot2,
 .dot3 {

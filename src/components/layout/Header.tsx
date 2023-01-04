@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import * as React from 'react';
 import { useCookies } from 'react-cookie';
@@ -14,8 +13,8 @@ type HeaderProps = {
 };
 
 const languageNames = {
-  id: 'ID 🇮🇩',
   en: 'EN 🇬🇧',
+  id: 'ID 🇮🇩',
 };
 
 export default function Header({ large = false }: HeaderProps) {
@@ -40,6 +39,15 @@ export default function Header({ large = false }: HeaderProps) {
   //#endregion  //*======== Scroll Shadow ===========
   const [cookie, setCookie] = useCookies(['NEXT_LOCALE']);
   const { asPath, locale: activeLocale, locales } = useRouter();
+  console.log('🚀 ~ file: Header.tsx:42 ~ Header ~ activeLocale', activeLocale);
+
+  function handleCheckedChange(value) {
+    if (cookie.NEXT_LOCALE !== value) {
+      setCookie('NEXT_LOCALE', value, { path: '/' });
+      router.push(asPath, undefined, { locale: value });
+    }
+    router.push(asPath, undefined, { locale: value });
+  }
 
   return (
     <header
@@ -107,26 +115,16 @@ export default function Header({ large = false }: HeaderProps) {
             ))}
           </ul>
           <div className='flex items-center space-x-4'>
-            <ul className='flex  gap-x-2'>
+            <select
+              name='locales'
+              onChange={(event) => handleCheckedChange(event.target.value)}
+              defaultValue={activeLocale}
+              className='bg-gray-600 text-sm'
+            >
               {locales.map((locale) => (
-                <li key={locale}>
-                  <Link href={asPath} locale={locale}>
-                    <a
-                      className='text-black dark:text-white'
-                      hrefLang={locale}
-                      aria-current={locale === activeLocale ? 'page' : null}
-                      onClick={() => {
-                        if (cookie.NEXT_LOCALE !== locale) {
-                          setCookie('NEXT_LOCALE', locale, { path: '/' });
-                        }
-                      }}
-                    >
-                      {languageNames[locale]}
-                    </a>
-                  </Link>
-                </li>
+                <option value={locale}>{languageNames[locale]}</option>
               ))}
-            </ul>
+            </select>
             <ThemeButton />
           </div>
         </nav>

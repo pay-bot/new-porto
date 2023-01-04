@@ -68,6 +68,7 @@
     "win": "Winner",
     "playAgain": "Play Again",
     "true": "True Answer",
-    "push": "Guessing gundu is a traditional game from Indonesia, usually played by 2 or more people. Each player bets gundu according to their will, and then each player will guess the total of all the gundu that are bet, including their own betting gundu. The winner is determined from the correct guess. The winner will get all the gundu that are bet."
+    "push": "start",
+    "howDesc": "Guessing gundu is a traditional game from Indonesia, usually played by 2 or more people. Each player bets gundu according to their will, and then each player will guess the total of all the gundu that are bet, including their own betting gundu. The winner is determined from the correct guess. The winner will get all the gundu that are bet."
   }
 }

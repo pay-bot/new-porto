@@ -192,7 +192,7 @@ export default function MarbleGuest() {
     onButtonClick;
 
   const MarbleGuest = (
-    <div className='svfg-bg z-[10000] flex h-[calc(100vh-4rem)] h-[90vh] min-h-[600px] w-[340px] flex-col items-center justify-between  overflow-hidden bg-transparent px-3 py-16 md:px-8 2xl:h-[650px]'>
+    <div className='svfg-bg z-[10000] flex h-[calc(100vh-4rem)] h-[90vh] min-h-[600px] min-w-[300px] flex-col items-center justify-between  overflow-hidden bg-transparent px-3 py-16 md:px-8 xl:w-[350px] 2xl:h-[650px] 2xl:w-[350px]'>
       <div className='w-full '>
         {/* <div className='w-full border-2 border-blue-300 mb-2'>CPU</div> */}
         <div className='flex items-center justify-center space-x-3 '>
@@ -369,7 +369,7 @@ export default function MarbleGuest() {
         />
 
         {!gameOn && !startScreen && !startNewGame && (
-          <div className='z-[10000] flex h-[500px] w-full flex-col items-center justify-center space-y-5'>
+          <div className='relative z-[10000] mx-auto flex h-[75vh] max-h-[650px]   min-h-[500px] min-w-[300px]  transform flex-col items-center justify-center xl:h-[650px] xl:w-[350px] 2xl:h-[650px] 2xl:w-[350px]'>
             <img
               src='./static/images/marbleplus.png'
               alt=''
@@ -391,7 +391,7 @@ export default function MarbleGuest() {
         )}
 
         {gameOn && !startScreen && !startNewGame && (
-          <div className='flex h-[500px] w-full flex-col items-center justify-center space-y-5 '>
+          <div className='relative mx-auto flex h-[75vh] max-h-[650px]   min-h-[500px] min-w-[300px]  transform flex-col items-center justify-center xl:h-[650px] xl:w-[350px] 2xl:h-[650px] 2xl:w-[350px] '>
             <img
               src='./static/images/marbleplus.png'
               alt=''
@@ -407,7 +407,7 @@ export default function MarbleGuest() {
           </div>
         )}
         {startScreen && !startNewGame && !continueGame && gameOn && (
-          <div className=' z-[10000] flex h-screen w-[340px] flex-col items-center justify-center space-y-4 md:h-[600px]'>
+          <div className=' z-[10000] flex flex h-[75vh] max-h-[650px]   min-h-[500px] min-w-[300px]  transform flex-col items-center justify-center xl:h-[650px] xl:w-[350px] 2xl:h-[650px] 2xl:w-[350px]'>
             <button
               type='button'
               onClick={handleGameStartNew}
@@ -473,7 +473,7 @@ export default function MarbleGuest() {
         <Bounce when={howOn}>
           {howOn && (
             <div className='absolute inset-0 z-[10001] -mt-10 flex items-center justify-center'>
-              <div className='bg-white flex h-[70%] w-72 flex-col items-center justify-center space-y-3 rounded  p-4 shadow-xl'>
+              <div className='flex h-[70%] w-72 flex-col items-center justify-center space-y-3 rounded bg-white  p-4 shadow-xl'>
                 <div className='text-xl font-bold text-black'>Tebak Gundu</div>
                 <div className='text-black '>{t('game.howDesc')}</div>
                 <button
