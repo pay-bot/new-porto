@@ -122,7 +122,9 @@ export default function Header({ large = false }: HeaderProps) {
               className='bg-gray-600 text-sm'
             >
               {locales.map((locale) => (
-                <option value={locale}>{languageNames[locale]}</option>
+                <option key={locale} value={locale}>
+                  {languageNames[locale]}
+                </option>
               ))}
             </select>
             <ThemeButton />
