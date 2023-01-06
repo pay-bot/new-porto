@@ -461,7 +461,7 @@ p.thought:after {
   outline-offset: 4px;
   transition: filter 250ms;
 }
-.shadow {
+.shadow-button {
   position: absolute;
   top: 0;
   left: 0;

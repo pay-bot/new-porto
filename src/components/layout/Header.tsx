@@ -50,12 +50,7 @@ export default function Header({ large = false }: HeaderProps) {
   }
 
   return (
-    <header
-      className={clsx(
-        'sticky top-0 z-50 bg-transparent transition-shadow',
-        !onTop && 'shadow-sm'
-      )}
-    >
+    <header className="">
       {/* Skip Navigation */}
       <a
         href='#skip-nav'
@@ -119,7 +114,7 @@ export default function Header({ large = false }: HeaderProps) {
               name='locales'
               onChange={(event) => handleCheckedChange(event.target.value)}
               defaultValue={activeLocale}
-              className='bg-gray-600 text-sm'
+              className='border bg-transparent text-sm rounded'
             >
               {locales.map((locale) => (
                 <option key={locale} value={locale}>

@@ -192,7 +192,7 @@ export default function MarbleGuest() {
     onButtonClick;
 
   const MarbleGuest = (
-    <div className='svfg-bg z-[10000] flex h-[calc(100vh-4rem)] h-[90vh] min-h-[600px] min-w-[300px] flex-col items-center justify-between  overflow-hidden bg-transparent px-3 py-16 md:px-8 xl:w-[350px] 2xl:h-[650px] 2xl:w-[350px]'>
+    <div className='svfg-bg z-[10000] flex h-[calc(100vh-4rem)] h-[90vh] min-min-h-[600px] min-w-[300px] flex-col items-center justify-between  overflow-hidden bg-transparent px-3 py-16 md:px-8 xl:w-[320px] 2xl:h-[650px] 2xl:w-[350px]'>
       <div className='w-full '>
         {/* <div className='w-full border-2 border-blue-300 mb-2'>CPU</div> */}
         <div className='flex items-center justify-center space-x-3 '>
@@ -361,7 +361,7 @@ export default function MarbleGuest() {
   return (
     <>
       {confettiOn && <Confetti width={width} height={height} />}
-      <div className='relative mx-auto flex h-[75vh] max-h-[650px]   min-h-[500px] min-w-[300px]  transform flex-col items-center justify-center xl:h-[650px] xl:w-[350px] 2xl:h-[650px] 2xl:w-[350px]'>
+      <div className='relative mx-auto flex h-[75vh] min-h-[600px]   max-h-[650px]   w-[320px] min-w-[300px] transform flex-col items-center justify-center xl:h-[580px] xl:w-[320px] 2xl:h-[650px] 2xl:w-[350px]'>
         <img
           src='./static/images/frame.png'
           alt=''
@@ -369,7 +369,7 @@ export default function MarbleGuest() {
         />
 
         {!gameOn && !startScreen && !startNewGame && (
-          <div className='relative z-[10000] mx-auto flex h-[75vh] max-h-[650px]   min-h-[500px] min-w-[300px]  transform flex-col items-center justify-center xl:h-[650px] xl:w-[350px] 2xl:h-[650px] 2xl:w-[350px]'>
+          <div className='relative z-[10000] mx-auto flex h-[75vh] min-h-[600px]   max-h-[650px]   w-[320px] min-w-[300px] transform flex-col items-center justify-center xl:h-[580px] xl:w-[320px] 2xl:h-[650px] 2xl:w-[350px]'>
             <img
               src='./static/images/marbleplus.png'
               alt=''
@@ -391,7 +391,7 @@ export default function MarbleGuest() {
         )}
 
         {gameOn && !startScreen && !startNewGame && (
-          <div className='relative mx-auto flex h-[75vh] max-h-[650px]   min-h-[500px] min-w-[300px]  transform flex-col items-center justify-center xl:h-[650px] xl:w-[350px] 2xl:h-[650px] 2xl:w-[350px] '>
+          <div className='relative mx-auto flex h-[75vh] min-h-[600px]   max-h-[650px]   w-[320px] min-w-[300px] transform flex-col items-center justify-center xl:h-[580px] xl:w-[320px] 2xl:h-[650px] 2xl:w-[350px] '>
             <img
               src='./static/images/marbleplus.png'
               alt=''
@@ -407,7 +407,7 @@ export default function MarbleGuest() {
           </div>
         )}
         {startScreen && !startNewGame && !continueGame && gameOn && (
-          <div className=' z-[10000] flex flex h-[75vh] max-h-[650px]   min-h-[500px] min-w-[300px]  transform flex-col items-center justify-center xl:h-[650px] xl:w-[350px] 2xl:h-[650px] 2xl:w-[350px]'>
+          <div className=' z-[10000] flex flex h-[75vh] min-h-[600px]   max-h-[650px]   w-[320px] min-w-[300px] transform flex-col  items-center justify-center xl:h-[580px] xl:w-[320px] 2xl:h-[650px] 2xl:w-[350px]'>
             <button
               type='button'
               onClick={handleGameStartNew}
@@ -441,7 +441,7 @@ export default function MarbleGuest() {
         <Bounce when={stateModal}>
           {stateModal && (
             <div className='absolute inset-0 z-[100001] -mt-10 flex items-center justify-center '>
-              <div className='flex h-48 w-72  flex-col items-center justify-center space-y-3 rounded bg-white  p-4 shadow-xl'>
+              <div className='flex h-48 w-64  flex-col  items-center justify-center space-y-3 rounded bg-white p-4  shadow-xl 2xl:w-72'>
                 {stateGameOver ? (
                   <div className='text-red font-bold uppercase'>
                     {t('game.gameOver')}
@@ -459,7 +459,7 @@ export default function MarbleGuest() {
                       {parseInt(taruhanCpu, 10) + parseInt(taruhan, 10)}
                     </div>
                     <button className=' pushable' onClick={handlePlayAgain}>
-                      <span className='shadow'></span>
+                      <span className='shadow-button'></span>
                       <span className='edge-red'></span>
                       <span className='front-red'>{t('game.playAgain')}</span>
                     </button>
