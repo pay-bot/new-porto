@@ -41,8 +41,8 @@ export default function IndexPage({
           )}
         >
           <article className='layout'>
-            <div className='items-center lg:justify-between flex lg:flex-row flex-col gap-y-20 lg:grid-cols-2 lg:gap-y-0'>
-              <div className='lg:w-6/12 w-full'>
+            <div className='flex flex-col items-center gap-y-20 lg:grid-cols-2 lg:flex-row lg:justify-between lg:gap-y-0'>
+              <div className='w-full lg:w-6/12'>
                 <h2 className='text-2xl md:text-4xl 2xl:text-5xl' data-fade='1'>
                   Hi!
                 </h2>
@@ -50,7 +50,7 @@ export default function IndexPage({
                   className='mt-1 text-3xl md:text-5xl 2xl:text-6xl'
                   data-fade='2'
                 >
-                  You can call me <Accent>Clarence</Accent>
+                  You can call me <Accent>Alfian</Accent>
                 </h1>
                 <p
                   className={clsx(

@@ -50,7 +50,7 @@ export default function Header({ large = false }: HeaderProps) {
   }
 
   return (
-    <header className="">
+    <header className=''>
       {/* Skip Navigation */}
       <a
         href='#skip-nav'
@@ -114,7 +114,7 @@ export default function Header({ large = false }: HeaderProps) {
               name='locales'
               onChange={(event) => handleCheckedChange(event.target.value)}
               defaultValue={activeLocale}
-              className='border bg-transparent text-sm rounded'
+              className='rounded border bg-transparent text-sm'
             >
               {locales.map((locale) => (
                 <option key={locale} value={locale}>
@@ -134,6 +134,6 @@ const links = [
   { href: '/', label: 'Home' },
   { href: '/blog', label: 'Blog' },
   { href: '/projects', label: 'Projects' },
-  { href: '/library', label: 'Library' },
+  // { href: '/library', label: 'Library' },
   { href: '/about', label: 'About' },
 ];

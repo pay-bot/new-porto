@@ -192,7 +192,7 @@ export default function MarbleGuest() {
     onButtonClick;
 
   const MarbleGuest = (
-    <div className='svfg-bg z-[10000] flex h-[calc(100vh-4rem)] h-[90vh] min-min-h-[600px] min-w-[300px] flex-col items-center justify-between  overflow-hidden bg-transparent px-3 py-16 md:px-8 xl:w-[320px] 2xl:h-[650px] 2xl:w-[350px]'>
+    <div className='svfg-bg min-min-h-[600px] z-[10000] flex h-[calc(100vh-4rem)] h-[90vh] min-w-[300px] flex-col items-center justify-between  overflow-hidden bg-transparent px-3 py-16 md:px-8 xl:w-[320px] 2xl:h-[650px] 2xl:w-[350px]'>
       <div className='w-full '>
         {/* <div className='w-full border-2 border-blue-300 mb-2'>CPU</div> */}
         <div className='flex items-center justify-center space-x-3 '>
@@ -361,7 +361,7 @@ export default function MarbleGuest() {
   return (
     <>
       {confettiOn && <Confetti width={width} height={height} />}
-      <div className='relative mx-auto flex h-[75vh] min-h-[600px]   max-h-[650px]   w-[320px] min-w-[300px] transform flex-col items-center justify-center xl:h-[580px] xl:w-[320px] 2xl:h-[650px] 2xl:w-[350px]'>
+      <div className='relative mx-auto flex h-[75vh] max-h-[650px]   min-h-[600px]   w-[320px] min-w-[300px] transform  flex-col items-center justify-center space-y-3 xl:h-[580px] xl:w-[320px] 2xl:h-[650px] 2xl:w-[350px]'>
         <img
           src='./static/images/frame.png'
           alt=''
@@ -369,29 +369,32 @@ export default function MarbleGuest() {
         />
 
         {!gameOn && !startScreen && !startNewGame && (
-          <div className='relative z-[10000] mx-auto flex h-[75vh] min-h-[600px]   max-h-[650px]   w-[320px] min-w-[300px] transform flex-col items-center justify-center xl:h-[580px] xl:w-[320px] 2xl:h-[650px] 2xl:w-[350px]'>
+          <div className='relative z-[10000] mx-auto flex h-[75vh] max-h-[650px]   min-h-[600px]   w-[320px] min-w-[300px] transform  flex-col items-center justify-center space-y-3 xl:h-[580px] xl:w-[320px] 2xl:h-[650px] 2xl:w-[350px]'>
             <img
               src='./static/images/marbleplus.png'
               alt=''
               className='h-24 w-24  hover:animate-[spin_1s_ease-in-out_infinite]'
             />
-            <div className='flex items-center  space-x-1'>
+            <div className='text-center text-xl font-bold text-white '>
+              Marble Guest
+            </div>
+            <div className='absolute bottom-10 flex flex-col justify-center space-y-3'>
               <div className='text-center text-xl font-bold text-white '>
                 Play With Me ?
               </div>
+              <button
+                type='button'
+                onClick={handleGameOn}
+                className='bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-2xl font-bold text-transparent'
+              >
+                Yes
+              </button>
             </div>
-            <button
-              type='button'
-              onClick={handleGameOn}
-              className='bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-2xl font-bold text-transparent'
-            >
-              Yes
-            </button>
           </div>
         )}
 
         {gameOn && !startScreen && !startNewGame && (
-          <div className='relative mx-auto flex h-[75vh] min-h-[600px]   max-h-[650px]   w-[320px] min-w-[300px] transform flex-col items-center justify-center xl:h-[580px] xl:w-[320px] 2xl:h-[650px] 2xl:w-[350px] '>
+          <div className='relative mx-auto flex h-[75vh] max-h-[650px]   min-h-[600px]   w-[320px] min-w-[300px] transform  flex-col items-center justify-center space-y-3 xl:h-[580px] xl:w-[320px] 2xl:h-[650px] 2xl:w-[350px] '>
             <img
               src='./static/images/marbleplus.png'
               alt=''
@@ -407,7 +410,7 @@ export default function MarbleGuest() {
           </div>
         )}
         {startScreen && !startNewGame && !continueGame && gameOn && (
-          <div className=' z-[10000] flex flex h-[75vh] min-h-[600px]   max-h-[650px]   w-[320px] min-w-[300px] transform flex-col  items-center justify-center xl:h-[580px] xl:w-[320px] 2xl:h-[650px] 2xl:w-[350px]'>
+          <div className=' z-[10000] flex flex h-[75vh] max-h-[650px]   min-h-[600px]   w-[320px] min-w-[300px] transform  flex-col items-center  justify-center space-y-3 xl:h-[580px] xl:w-[320px] 2xl:h-[650px] 2xl:w-[350px]'>
             <button
               type='button'
               onClick={handleGameStartNew}

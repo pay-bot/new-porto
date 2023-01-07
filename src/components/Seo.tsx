@@ -4,10 +4,10 @@ import { useRouter } from 'next/router';
 import { openGraph } from '@/lib/helper';
 
 const defaultMeta = {
-  title: 'Theodorus Clarence',
+  title: 'Fahri Alpiansyah',
   siteName: 'theodorusclarence.com',
   description:
-    'An online portfolio and blog by Theodorus Clarence. Showcase of my projects, and some of my thoughts about website development.',
+    'An online portfolio and blog by Fahri Alpiansyah. Showcase of my projects, and some of my thoughts about website development.',
   url: 'https://theodorusclarence.com',
   image: 'https://theodorusclarence.com/favicon/large-og.jpg',
   type: 'website',
@@ -71,7 +71,7 @@ export default function Seo(props: SeoProps) {
           <meta
             name='author'
             property='article:author'
-            content='Theodorus Clarence'
+            content='Fahri Alpiansyah'
           />
         </>
       )}
