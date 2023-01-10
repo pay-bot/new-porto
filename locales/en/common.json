@@ -70,5 +70,11 @@
     "true": "True Answer",
     "push": "start",
     "howDesc": "Guessing gundu is a traditional game from Indonesia, usually played by 2 or more people. Each player bets gundu according to their will, and then each player will guess the total of all the gundu that are bet, including their own betting gundu. The winner is determined from the correct guess. The winner will get all the gundu that are bet."
+  },
+  "about": {
+    "title": "Something bad just happened...",
+    "p1": "My programming journey began with my passion for computers. I had a strong aptitude for solving both hardware and software issues since high school.",
+    "p2": "This hobby eventually led me to pursue a degree in programming at university, where I studied for two years. During this time, I became deeply interested in web development and knew it was the field I wanted to pursue.",
+    "p3": "I learned through self-study, watching videos on YouTube and taking courses on Udemy. In 2020, I was given the opportunity to join an IT consulting company in Jakarta as a React JS developer."
   }
 }

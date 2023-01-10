@@ -1,12 +1,11 @@
+import { Reactquery, Redux } from '@icons-pack/react-simple-icons';
 import clsx from 'clsx';
 import * as React from 'react';
-import { IoLogoVercel } from 'react-icons/io5';
 import {
+  SiMaterialui,
   SiNextdotjs,
-  SiNodedotjs,
   SiReact,
   SiTailwindcss,
-  SiTypescript,
 } from 'react-icons/si';
 
 import CustomLink from '@/components/links/CustomLink';
@@ -54,22 +53,7 @@ const stacks = [
       </>
     ),
   },
-  {
-    id: 'typescript',
-    icon: SiTypescript,
-    tooltip: (
-      <>
-        <CustomLink href='https://www.typescriptlang.org/'>
-          TypeScript
-        </CustomLink>
-        , finally jumping on this one, I love the experience! Check out my{' '}
-        <CustomLink href='https://github.com/theodorusclarence/ts-nextjs-tailwind-starter'>
-          starter template
-        </CustomLink>{' '}
-        using Next.js, Tailwind CSS, and TypeScript
-      </>
-    ),
-  },
+
   {
     id: 'tailwind',
     icon: SiTailwindcss,
@@ -86,8 +70,19 @@ const stacks = [
     ),
   },
   {
-    id: 'vercel',
-    icon: IoLogoVercel,
+    id: 'mui',
+    icon: SiMaterialui,
+    tooltip: (
+      <>
+        <CustomLink href='https://nodejs.org/'>Node.js</CustomLink>, simple
+        backend language so you don't need to learn another language. Not using
+        this too often because Next.js already has a backend built-in.
+      </>
+    ),
+  },
+  {
+    id: 'react-query',
+    icon: Reactquery,
     tooltip: (
       <>
         <CustomLink href='https://swr.vercel.app/'>SWR by Vercel</CustomLink>,
@@ -100,13 +95,16 @@ const stacks = [
     ),
   },
   {
-    id: 'node',
-    icon: SiNodedotjs,
+    id: 'redux',
+    icon: Redux,
     tooltip: (
       <>
-        <CustomLink href='https://nodejs.org/'>Node.js</CustomLink>, simple
-        backend language so you don't need to learn another language. Not using
-        this too often because Next.js already has a backend built-in.
+        <CustomLink href='https://swr.vercel.app/'>SWR by Vercel</CustomLink>,
+        great react hooks for data fetching and caching, the{' '}
+        <CustomLink href='https://swr.vercel.app/docs/revalidation#revalidate-on-focus'>
+          revalidate on focus
+        </CustomLink>{' '}
+        is unreal. react-query is also a great alternative to this.
       </>
     ),
   },

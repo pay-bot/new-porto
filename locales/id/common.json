@@ -70,5 +70,11 @@
     "true": "Jawaban Benar",
     "push": "Mulai",
     "howDesc": "Tebak gundu adalah permainan tradisional dari Indonesia, biasanya dimainkan oleh 2 orang atau lebih. setiap pemain bertaruh gundu sesuai kehendaknya, dan kemudian setiap pemain akan menebak total semua gundu yang di pertaruhkan termasuk gundu taruhan nya. Pemenang di tentukan dari tebakan yang benar. Pemenang akan mendapatkan semua gundu yang di pertaruhkan."
+  },
+  "about": {
+    "title": "Something bad just happened...",
+    "p1": "Petualangan programming saya dimulai dengan passion saya terhadap komputer. Saya memiliki kemampuan yang kuat dalam menyelesaikan masalah hardware dan software sejak sekolah menengah.",
+    "p2": "Hobby ini akhirnya membawa saya untuk mengejar gelar di bidang programming di universitas, di mana saya belajar selama dua tahun. Selama waktu ini, saya sangat tertarik dengan pengembangan web dan tahu inilah bidang yang ingin saya tekuni.",
+    "p3": "Saya belajar melalui belajar mandiri, menonton video di YouTube dan mengambil beberapa kursus di Udemy. Pada tahun 2020, saya diberi kesempatan untuk bergabung dengan sebuah perusahaan konsultan TI di Jakarta sebagai seorang React JS developer."
   }
 }
